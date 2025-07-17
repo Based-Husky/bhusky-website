@@ -1,0 +1,13 @@
+<section [class]="isBlue ? 'section-container-blue' : 'section-container'">
+    <div class="section-text-content">
+        <h1>{{title}}</h1>
+        <ng-content></ng-content>
+        @if (ctaLink != "") {
+        <br />
+        <bhusky-button [link]="ctaLink" [text]="ctaText" [isOnBlue]="isBlue" class="cta-btn"></bhusky-button>
+        }
+    </div>
+    @if (imageUrl != "") {
+    <img [src]="imageUrl" class="section-image" />
+    }
+</section>

@@ -1,0 +1,19 @@
+.logo-text {
+    font-family: var(--font-family);
+    font-size: var(--font-size-title);
+    font-weight: bold;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.blue {
+    color: var(--color-primary);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-small);
+}

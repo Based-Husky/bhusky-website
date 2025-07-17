@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+    --color-primary: #1F6DD9;
+    --color-background: #FFFFFF;
+    --color-text: #0B0C10;
+    --color-outline: #dddddd;
+    --color-primary-text: #FFFFFF;
+    --color-primary-shadow: #6f9dff8a;
+    --color-background-shadow: #c0c0c08a;
+    --color-primary-focused: #367bdb;
+    --color-background-focused: rgb(217, 233, 255);
+
+    --padding-side-border: 8px;
+    --padding-extralarge: 32px;
+    --padding-large: 24px;
+    --padding-medium: 16px;
+    --padding-small: 8px;
+
+    --font-family: "Red Hat Display", sans-serif;
+    --font-size-title: 1.5rem;
+    --font-size-headline: 2.2rem;
+
+    --border-radius: 12px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    html {
+        --padding-side-border: 16px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    html {
+        --padding-side-border: 16px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    html {
+        --padding-side-border: 32px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1100px) {
+    html {
+        --padding-side-border: 128px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1550px) {
+    html {
+        --padding-side-border: 256px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1750px) {
+    html {
+        --padding-side-border: 384px;
+    }
+}

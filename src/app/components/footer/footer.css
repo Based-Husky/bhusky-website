@@ -1,0 +1,28 @@
+.bhusky-footer {
+    background-color: var(--color-text);
+    color: var(--color-primary-text);
+    padding: var(--padding-large) var(--padding-side-border);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mail-link {
+    color: var(--color-primary-text);
+    display: inline-block;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-small);
+}
+
+@media only screen and (max-width: 768px) {
+    .bhusky-footer {
+        flex-direction: column;
+        align-items: start;
+        gap: var(--padding-large);
+    }
+}

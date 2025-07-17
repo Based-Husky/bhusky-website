@@ -1,0 +1,39 @@
+#app-container {
+  padding: var(--padding-medium) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-large);
+  align-items: stretch;
+}
+
+bhusky-header {
+  position: sticky;
+}
+
+.join-icon-link {
+  filter: invert()
+}
+
+.button-bar {
+  display: flex;
+  gap: var(--padding-large);
+  padding: var(--padding-medium);
+  padding-left: 0;
+}
+
+.contract-address {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1.8;
+}
+
+.copy-btn {
+  cursor: pointer;
+  border-radius: 5px;
+  float: left;
+}
+
+.copy-btn:hover {
+  background-color: var(--color-primary-focused);
+}

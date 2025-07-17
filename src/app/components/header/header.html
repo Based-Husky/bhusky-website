@@ -1,0 +1,48 @@
+<header #headerRef class="main-header" (resize)="checkForResponsiveness($event)">
+    <bhusky-logo></bhusky-logo>
+    @if (showBurger) {
+    <a class="burger-menu-btn" (click)="toggleMenu()"><img src="/icons/burger-menu.svg" height="32" width="32" /></a>
+    } @else {
+    <nav #linksRef class="header-nav">
+        @for (link of links; track $index) {
+        <a class="header-link" [href]="link.href">{{ link.linkTest }}</a>
+        }
+    </nav>
+    <nav #iconsRef class="header-nav">
+        <bhusky-icon-link iconPath="/icons/dex-screener.png"
+            href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a"
+            [openInNewTab]="true"></bhusky-icon-link>
+        <bhusky-icon-link iconPath="/icons/telegram.png" href="https://t.me/bhuskybase"
+            [openInNewTab]="true"></bhusky-icon-link>
+        <bhusky-icon-link iconPath="/icons/twitter.png" href="https://x.com/basedhusky"
+            [openInNewTab]="true"></bhusky-icon-link>
+    </nav>
+    }
+
+    <div [class]="'header-sidebar ' + (sidebarMenuIsOpen && showBurger ? '' : 'menu-hidden')">
+        <div>
+            <div class="close-btn-container"><a class="close-btn" (click)="toggleMenu()"><img src="/icons/close.svg"
+                        height="32" width="32" /></a></div>
+            <nav class="sidebar-nav">
+                @for (link of links; track $index) {
+                @if ($index != 0) {
+                <hr class="sidebar-divider" />
+                }
+                <a class="sidebar-link" [href]="link.href" (click)="closeMenu()">{{ link.linkTest }}</a>
+                }
+            </nav>
+        </div>
+        <div>
+            <hr class="sidebar-divider" />
+            <nav class="sidebar-icon-nav">
+                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/icons/dex-screener.png"
+                    href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a"
+                    [openInNewTab]="true"></bhusky-icon-link>
+                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/icons/telegram.png"
+                    href="https://t.me/bhuskybase" [openInNewTab]="true"></bhusky-icon-link>
+                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/icons/twitter.png"
+                    href="https://x.com/basedhusky" [openInNewTab]="true"></bhusky-icon-link>
+            </nav>
+        </div>
+    </div>
+</header>
