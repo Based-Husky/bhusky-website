@@ -1,7 +1,7 @@
 <header #headerRef class="main-header" (resize)="checkForResponsiveness($event)">
     <bhusky-logo></bhusky-logo>
     @if (showBurger) {
-    <a class="burger-menu-btn" (click)="toggleMenu()"><img src="/icons/burger-menu.svg" height="32" width="32" /></a>
+    <a class="burger-menu-btn" (click)="toggleMenu()"><img src="/burger-menu.svg" height="32" width="32" /></a>
     } @else {
     <nav #linksRef class="header-nav">
         @for (link of links; track $index) {
@@ -9,19 +9,19 @@
         }
     </nav>
     <nav #iconsRef class="header-nav">
-        <bhusky-icon-link iconPath="/icons/dex-screener.png"
+        <bhusky-icon-link iconPath="/dex-screener.png"
             href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a"
             [openInNewTab]="true"></bhusky-icon-link>
-        <bhusky-icon-link iconPath="/icons/telegram.png" href="https://t.me/bhuskybase"
+        <bhusky-icon-link iconPath="/telegram.png" href="https://t.me/bhuskybase"
             [openInNewTab]="true"></bhusky-icon-link>
-        <bhusky-icon-link iconPath="/icons/twitter.png" href="https://x.com/basedhusky"
+        <bhusky-icon-link iconPath="/twitter.png" href="https://x.com/basedhusky"
             [openInNewTab]="true"></bhusky-icon-link>
     </nav>
     }
 
     <div [class]="'header-sidebar ' + (sidebarMenuIsOpen && showBurger ? '' : 'menu-hidden')">
         <div>
-            <div class="close-btn-container"><a class="close-btn" (click)="toggleMenu()"><img src="/icons/close.svg"
+            <div class="close-btn-container"><a class="close-btn" (click)="toggleMenu()"><img src="/close.svg"
                         height="32" width="32" /></a></div>
             <nav class="sidebar-nav">
                 @for (link of links; track $index) {
@@ -35,12 +35,12 @@
         <div>
             <hr class="sidebar-divider" />
             <nav class="sidebar-icon-nav">
-                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/icons/dex-screener.png"
+                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/dex-screener.png"
                     href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a"
                     [openInNewTab]="true"></bhusky-icon-link>
-                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/icons/telegram.png"
+                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/telegram.png"
                     href="https://t.me/bhuskybase" [openInNewTab]="true"></bhusky-icon-link>
-                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/icons/twitter.png"
+                <bhusky-icon-link [size]="36" class="sidebar-icon-link" iconPath="/twitter.png"
                     href="https://x.com/basedhusky" [openInNewTab]="true"></bhusky-icon-link>
             </nav>
         </div>

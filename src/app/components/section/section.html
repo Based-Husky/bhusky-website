@@ -6,6 +6,10 @@
         <br />
         <bhusky-button [link]="ctaLink" [text]="ctaText" [isOnBlue]="isBlue" class="cta-btn"></bhusky-button>
         }
+        @if (secondaryButtonLink != "") {
+        <div class="button-divider"></div>
+        <bhusky-button [link]="secondaryButtonLink" [text]="secondaryButtonText" [isOnBlue]="isBlue" [isSecondary]="true" class="secondary-btn"></bhusky-button>
+        }
     </div>
     @if (imageUrl != "") {
     <img [src]="imageUrl" class="section-image" />

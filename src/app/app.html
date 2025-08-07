@@ -2,19 +2,26 @@
   <bhusky-header [links]="headerLinks"></bhusky-header>
 
   <bhusky-section title="$BHUSKY - Bringing Dog Charity Onchain" ctaLink="#buy-now" ctaText="Buy Now"
-    imageUrl="images/bhusky-hero.png">
+    imageUrl="/bhusky-hero.png">
     <p>The One and Only Blue Husky on Base</p>
   </bhusky-section>
 
-  <bhusky-section id="about" [isBlue]="true" title="Onchain for a Change" ctaLink="#join" ctaText="Join the Pack"
-    imageUrl="images/bhusky-charity.png">
+  <bhusky-section 
+  id="about" 
+  [isBlue]="true" 
+  title="Onchain for a Change" 
+  ctaLink="#join" 
+  ctaText="Join the Pack"
+  secondaryButtonLink="/woofpaper.pdf" 
+  secondaryButtonText="Get Woofpaper"
+  imageUrl="/bhusky-charity.png">
     <p>Base's one and only Husky is here to bring dog-charity onchain. Help us building a future where every dog can be
       happy!</p>
     <br />
     <p>Join our active community and participate in our regular donations.</p>
   </bhusky-section>
 
-  <bhusky-section id="huskenomics" title="Huskenomics" imageUrl="images/bhusky-burn.png">
+  <bhusky-section id="huskenomics" title="Huskenomics" imageUrl="/bhusky-burn.png">
     <ul>
       <li>$BHUSKY is a token with a fixed supply of 1,000,000,000 tokens.</li>
       <li>We have a 0/0 tax policy, meaning no taxes on buys or sells, allowing for a fair and transparent trading
@@ -29,21 +36,21 @@
 
   <bhusky-section id="buy-now" [isBlue]="true" title="Buy $BHUSKY"
     ctaLink="https://app.uniswap.org/swap?outputCurrency=0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018&chain=base"
-    ctaText="Buy on UniSwap" imageUrl="images/bhusky-uni.png">
+    ctaText="Buy on UniSwap" imageUrl="/bhusky-uni.png">
     <p>Based Husky is available on UniSwap.</p>
     <br />
     <p class="contract-address">
-      <a (click)="copyAddressToClipboard()"><img class="copy-btn" src="/icons/copy.svg" height="32" width="32" /></a>
+      <a (click)="copyAddressToClipboard()"><img class="copy-btn" src="/copy.svg" height="32" width="32" /></a>
       CA: {{contractAddress}}
     </p>
   </bhusky-section>
 
-  <bhusky-section id="join" title="Join the Pack!" imageUrl="images/bhusky-community.png">
+  <bhusky-section id="join" title="Join the Pack!" imageUrl="/bhusky-community.png">
     <p>Join our active community on Telegram and X to never miss an update.</p>
     <div class="button-bar">
-      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/icons/telegram.png" href="https://t.me/bhuskybase"
+      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/telegram.png" href="https://t.me/bhuskybase"
         [openInNewTab]="true"></bhusky-icon-link>
-      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/icons/twitter.png" href="https://x.com/basedhusky"
+      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/twitter.png" href="https://x.com/basedhusky"
         [openInNewTab]="true"></bhusky-icon-link>
     </div>
   </bhusky-section>

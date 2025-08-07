@@ -36,6 +36,12 @@
     max-width: 512px;
 }
 
+.button-divider {
+    width: var(--padding-medium);
+    height: var(--padding-medium);
+    display: inline-block;
+}
+
 @media only screen and (max-width: 992px) {
     .section-container, .section-container-blue {
         flex-direction: column-reverse;
