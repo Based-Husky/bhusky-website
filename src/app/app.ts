@@ -55,6 +55,18 @@ export class App {
       links: [{ label: 'Play on Telegram', href: 'https://t.me/bhuskygames_bot/runner' }]
     },
     {
+      name: "Bhusky's Crypt",
+      cover: '/bhusky-crypt.jpg',
+      coverAlt: "Bhusky's Crypt cover: Bhusky with a backpack in a torch-lit dungeon, with a friendly skeleton, a bat, a ghost and a treasure chest",
+      badge: 'Beta',
+      platforms: 'Telegram',
+      text: [
+        'A roguelike dungeon crawler: pick the Guardian or the Mystic, fight your way down the crypt, collect powers and face five bosses, including The Whale.',
+        "Bank your gold in Bhusky's Stash for permanent upgrades, and take on the Daily Run: the same dungeon for everyone, every day."
+      ],
+      links: [{ label: 'Play on Telegram', href: 'https://t.me/bhuskygames_bot/crypt' }]
+    },
+    {
       name: "Bhusky's Shelter",
       cover: '/bhusky-shelter.jpg',
       coverAlt: "Bhusky's Shelter cover: Bhusky in front of a snowy wooden dog shelter, next to a full food bowl",

@@ -313,7 +313,8 @@ bhusky-header {
   color: var(--color-text);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(5, 20, 60, 0.28);
+  /* Negative spread: no side shadow, so neighbouring slides do not show at the edges */
+  box-shadow: 0 14px 22px -8px rgba(5, 20, 60, 0.4);
 }
 
 .game-cover {
