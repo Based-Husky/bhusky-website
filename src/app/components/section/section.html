@@ -1,5 +1,6 @@
 <section [class]="isBlue ? 'section-container-blue' : 'section-container'">
     <div class="section-text-content">
+        <ng-content select="[sectionKicker]"></ng-content>
         <h1>{{title}}</h1>
         <ng-content></ng-content>
         @if (ctaLink != "") {
