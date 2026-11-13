@@ -44,7 +44,7 @@ export class App {
   protected readonly games: Game[] = [
     {
       name: 'BHUSKY Runner',
-      cover: '/bhusky-runner.jpg',
+      cover: '/bhusky-runner.webp',
       coverAlt: 'BHUSKY Runner cover: Bhusky running on a country path towards a trail of gold coins',
       badge: 'Beta',
       platforms: 'Telegram',
@@ -56,7 +56,7 @@ export class App {
     },
     {
       name: "Bhusky's Crypt",
-      cover: '/bhusky-crypt.jpg',
+      cover: '/bhusky-crypt.webp',
       coverAlt: "Bhusky's Crypt cover: Bhusky with a backpack in a torch-lit dungeon, with a friendly skeleton, a bat, a ghost and a treasure chest",
       badge: 'Beta',
       platforms: 'Telegram',
@@ -68,7 +68,7 @@ export class App {
     },
     {
       name: "Bhusky's Shelter",
-      cover: '/bhusky-shelter.jpg',
+      cover: '/bhusky-shelter.webp',
       coverAlt: "Bhusky's Shelter cover: Bhusky in front of a snowy wooden dog shelter, next to a full food bowl",
       badge: 'Coming soon',
       comingSoon: true,

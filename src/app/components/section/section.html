@@ -13,6 +13,7 @@
         }
     </div>
     @if (imageUrl != "") {
-    <img [src]="imageUrl" [alt]="imageAlt" class="section-image" />
+    <img [src]="imageUrl" [alt]="imageAlt" class="section-image" width="1024" height="1024"
+        [attr.loading]="isHero ? null : 'lazy'" [attr.fetchpriority]="isHero ? 'high' : null" />
     }
 </section>
