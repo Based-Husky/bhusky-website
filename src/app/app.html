@@ -4,7 +4,7 @@
   <bhusky-section [isHero]="true" title="$BHUSKY - Bringing Dog Charity Onchain" ctaLink="#buy-now" ctaText="Buy Now"
     secondaryButtonLink="/donate/" secondaryButtonText="Donate"
     imageUrl="/bhusky-hero.png" imageAlt="Bhusky, the blue husky mascot, jumping with joy">
-    <a sectionKicker class="impact-pill" href="/impact/">
+    <a sectionKicker class="impact-pill" href="/impact/" [attr.aria-label]="impact.donated + ' donated to dog rescues. See the proof'">
       <span class="impact-pill-heart" aria-hidden="true">💙</span>
       <span class="impact-pill-text"><strong>{{impact.donated}} donated to dog rescues</strong><span class="impact-pill-more">See the proof&nbsp;→</span></span>
     </a>

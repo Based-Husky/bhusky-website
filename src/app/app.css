@@ -149,4 +149,21 @@ bhusky-header {
   .hero-subtitle {
     font-size: 1.3rem;
   }
+
+  .impact-pill {
+    font-size: 1.1rem;
+    gap: 12px;
+    padding: 10px 22px 10px 12px;
+    margin-bottom: 20px;
+  }
+
+  .impact-pill-heart {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
+  .impact-pill-text {
+    column-gap: 10px;
+  }
 }
