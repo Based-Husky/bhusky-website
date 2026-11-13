@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Logo } from "../logo/logo";
 import { HeaderLink } from './header-link';
 import { IconLink } from "../icon-link/icon-link";
@@ -7,6 +7,7 @@ import { IconLink } from "../icon-link/icon-link";
   selector: 'bhusky-header',
   imports: [Logo, IconLink],
   templateUrl: './header.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './header.css'
 })
 export class Header {

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'bhusky-button',
   imports: [],
   templateUrl: './button.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './button.css'
 })
 export class Button {
