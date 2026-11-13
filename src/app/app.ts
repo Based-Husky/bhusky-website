@@ -17,6 +17,7 @@ export class App {
   protected readonly headerLinks = [
     { linkTest: 'About', href: '#about' },
     { linkTest: 'Impact', href: '/impact/' },
+    { linkTest: 'Play', href: '#play' },
     { linkTest: 'Huskenomics', href: '#huskenomics' },
     { linkTest: 'Buy Now', href: '#buy-now' },
     { linkTest: 'Join', href: '#join' },
