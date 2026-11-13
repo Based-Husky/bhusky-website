@@ -13,6 +13,7 @@
 .header-nav {
     display: flex;
     gap: var(--padding-large);
+    align-items: center;
 }
 
 .header-link {
@@ -121,4 +122,33 @@
     cursor: pointer;
     position: absolute;
     right: 0;
+}
+/* Donate: highlighted pill (header on blue, sidebar on white) */
+.header-link-cta {
+    background-color: var(--color-primary-text);
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+}
+
+.header-link-cta::after {
+    display: none;
+}
+
+.header-link-cta:hover,
+.header-link-cta:focus {
+    background-color: var(--color-background-focused);
+}
+
+.sidebar-link-cta {
+    background-color: var(--color-primary);
+    color: var(--color-primary-text);
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 999px;
+}
+
+.sidebar-link-cta::after {
+    display: none;
 }

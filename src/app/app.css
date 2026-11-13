@@ -37,3 +37,21 @@ bhusky-header {
 .copy-btn:hover {
   background-color: var(--color-primary-focused);
 }
+
+/* Huskenomics: links to the onchain proof of each claim */
+.verify {
+  color: var(--color-primary);
+  font-size: 0.9em;
+  font-weight: 700;
+  white-space: nowrap;
+  text-underline-offset: 2px;
+}
+
+.verify + .verify {
+  margin-left: 0.75em;
+}
+
+.verify:hover,
+.verify:focus {
+  color: var(--color-primary-focused);
+}

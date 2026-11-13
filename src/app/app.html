@@ -2,7 +2,7 @@
   <bhusky-header [links]="headerLinks"></bhusky-header>
 
   <bhusky-section title="$BHUSKY - Bringing Dog Charity Onchain" ctaLink="#buy-now" ctaText="Buy Now"
-    imageUrl="/bhusky-hero.png">
+    imageUrl="/bhusky-hero.png" imageAlt="Bhusky, the blue husky mascot, jumping with joy">
     <p>The One and Only Blue Husky on Base</p>
   </bhusky-section>
 
@@ -14,21 +14,24 @@
   ctaText="Donate"
   secondaryButtonLink="/woofpaper.pdf" 
   secondaryButtonText="Get Woofpaper"
-  imageUrl="/bhusky-charity.png">
+  imageUrl="/bhusky-charity.png"
+  imageAlt="Bhusky giving a thumbs up next to three rescue puppies, one with a bandage">
     <p>Base's one and only Husky is here to bring dog-charity onchain. Help us build a future where every dog can be
       happy!</p>
     <br />
     <p>Join our active community and participate in our regular donations.</p>
   </bhusky-section>
 
-  <bhusky-section id="huskenomics" title="Huskenomics" imageUrl="/bhusky-burn.png">
+  <bhusky-section id="huskenomics" title="Huskenomics" imageUrl="/bhusky-burn.png"
+    imageAlt="Bhusky in sunglasses tossing a coin into a fire next to a box labeled Supply">
     <ul>
-      <li>Fixed supply of 1,000,000,000 $BHUSKY, with no mint function.</li>
-      <li>0/0 tax: no fees on buys or sells.</li>
-      <li>Ownership renounced: no one, including us, can change the contract.</li>
-      <li>The original BHUSKY/WETH liquidity is locked forever (LP tokens burned).</li>
+      <li>Fixed supply of 1,000,000,000 $BHUSKY, with no mint function. <a class="verify" href="https://basescan.org/token/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+      <li>0/0 tax: no fees on buys or sells. <a class="verify" href="https://basescan.org/address/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018#code" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+      <li>Ownership renounced: no one, including us, can change the contract. <a class="verify" href="https://basescan.org/address/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018#readContract" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+      <li>The original BHUSKY/WETH liquidity is locked forever (LP tokens burned). <a class="verify" href="https://basescan.org/token/0x9d4021a55c70e47b048528a885750b9d14b26c8a#balances" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
       <li>~14.6% of the supply is permanently out of circulation: 45.69M burned to the dead address, plus 100.08M that a
-        whale accidentally sent to the token contract, where they can never be recovered.</li>
+        whale accidentally sent to the token contract, where they can never be recovered.
+        <a class="verify" href="https://basescan.org/token/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018?a=0x000000000000000000000000000000000000dEaD" target="_blank" rel="noopener">Verify burn&nbsp;↗</a> <a class="verify" href="https://basescan.org/tx/0x96cb8bc6a5d6f1f3b18a0785eec3eedaff45298027866b7901d9628387f4398d" target="_blank" rel="noopener">Verify transfer&nbsp;↗</a></li>
     </ul>
     <br />
     <p>Join us in making a difference while enjoying the benefits of holding $BHUSKY.</p>
@@ -36,21 +39,23 @@
 
   <bhusky-section id="buy-now" [isBlue]="true" title="Buy $BHUSKY"
     ctaLink="https://app.uniswap.org/swap?outputCurrency=0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018&chain=base"
-    ctaText="Buy on Uniswap" imageUrl="/bhusky-uni.png">
+    ctaText="Buy on Uniswap" imageUrl="/bhusky-uni.png" imageAlt="Bhusky riding a white unicorn">
     <p>Based Husky is available on Uniswap.</p>
     <br />
     <p class="contract-address">
-      <a (click)="copyAddressToClipboard()"><img class="copy-btn" src="/copy.svg" height="32" width="32" /></a>
+      <a role="button" tabindex="0" aria-label="Copy contract address" (click)="copyAddressToClipboard()"
+        (keydown.enter)="copyAddressToClipboard()"><img class="copy-btn" src="/copy.svg" alt="" height="32" width="32" /></a>
       CA: {{contractAddress}}
     </p>
   </bhusky-section>
 
-  <bhusky-section id="join" title="Join the Pack!" imageUrl="/bhusky-community.png">
+  <bhusky-section id="join" title="Join the Pack!" imageUrl="/bhusky-community.png"
+    imageAlt="Bhusky and two husky friends holding a $BHUSKY Community banner">
     <p>Join our active community on Telegram and X to never miss an update.</p>
     <div class="button-bar">
-      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/telegram.png" href="https://t.me/bhuskybase"
+      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/telegram.png" label="Telegram" href="https://t.me/bhuskybase"
         [openInNewTab]="true"></bhusky-icon-link>
-      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/twitter.png" href="https://x.com/basedhusky"
+      <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/twitter.png" label="X" href="https://x.com/basedhusky"
         [openInNewTab]="true"></bhusky-icon-link>
     </div>
   </bhusky-section>

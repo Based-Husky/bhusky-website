@@ -18,7 +18,8 @@ export class App {
     { linkTest: 'About', href: '#about' },
     { linkTest: 'Huskenomics', href: '#huskenomics' },
     { linkTest: 'Buy Now', href: '#buy-now' },
-    { linkTest: 'Join', href: '#join' }
+    { linkTest: 'Join', href: '#join' },
+    { linkTest: 'Donate', href: '/donate/', cta: true }
   ];
   protected readonly contractAddress = '0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018';
 
