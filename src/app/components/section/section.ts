@@ -19,6 +19,8 @@ export class Section {
   @Input() isBlue: boolean = false;
   /** First section of the page: larger title on desktop. */
   @Input() isHero: boolean = false;
+  /** Text-only section: a centred column of readable width. */
+  @Input() isCentered: boolean = false;
   @Input() secondaryButtonLink: string = '';
   @Input() secondaryButtonText: string = '';
 }

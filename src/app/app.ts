@@ -26,7 +26,14 @@ export class App {
   protected readonly impact = { donated: '≈ $970', donations: 5, rescues: 3, since: 'December 2024' };
   protected readonly contractAddress = '0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018';
 
+  /** True for a moment after the contract address is copied. */
+  protected readonly copied = signal(false);
+  private copiedTimer?: ReturnType<typeof setTimeout>;
+
   protected async copyAddressToClipboard() {
     await navigator.clipboard.writeText(this.contractAddress);
+    this.copied.set(true);
+    clearTimeout(this.copiedTimer);
+    this.copiedTimer = setTimeout(() => this.copied.set(false), 2000);
   }
 }
