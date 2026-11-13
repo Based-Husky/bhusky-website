@@ -3,6 +3,10 @@
 
   <bhusky-section title="$BHUSKY - Bringing Dog Charity Onchain" ctaLink="#buy-now" ctaText="Buy Now"
     imageUrl="/bhusky-hero.png" imageAlt="Bhusky, the blue husky mascot, jumping with joy">
+    <a sectionKicker class="impact-pill" href="/impact/">
+      <span class="impact-pill-heart" aria-hidden="true">💙</span>
+      <span class="impact-pill-text"><strong>{{impact.donated}} donated to dog rescues</strong><span class="impact-pill-more">See the proof&nbsp;→</span></span>
+    </a>
     <p>The One and Only Blue Husky on Base</p>
   </bhusky-section>
 
@@ -12,17 +16,21 @@
   title="Onchain for a Change" 
   ctaLink="/donate/" 
   ctaText="Donate"
-  secondaryButtonLink="/woofpaper.pdf" 
-  secondaryButtonText="Get Woofpaper"
+  secondaryButtonLink="/impact/" 
+  secondaryButtonText="See our impact"
   imageUrl="/bhusky-charity.png"
   imageAlt="Bhusky giving a thumbs up next to three rescue puppies, one with a bandage">
     <p>Base's one and only Husky is here to bring dog-charity onchain. Help us build a future where every dog can be
       happy!</p>
-    <br />
-    <p>Join our active community and participate in our regular donations.</p>
+    <ul class="impact-stats" aria-label="Our impact so far">
+      <li><strong>{{impact.donated}}</strong><span>donated</span></li>
+      <li><strong>{{impact.donations}}</strong><span>donations</span></li>
+      <li><strong>{{impact.rescues}}</strong><span>rescues</span></li>
+    </ul>
+    <p class="impact-note">By BHUSKY and partners since {{impact.since}}. Every donation is public, with its onchain proof.</p>
   </bhusky-section>
 
-  <bhusky-section id="huskenomics" title="Huskenomics" imageUrl="/bhusky-burn.png"
+  <bhusky-section id="huskenomics" title="Huskenomics" ctaLink="/woofpaper.pdf" ctaText="Get Woofpaper" imageUrl="/bhusky-burn.png"
     imageAlt="Bhusky tossing a coin into a fire next to a box labeled Supply">
     <ul>
       <li>Fixed supply of 1,000,000,000 $BHUSKY, with no mint function. <a class="verify" href="https://basescan.org/token/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>

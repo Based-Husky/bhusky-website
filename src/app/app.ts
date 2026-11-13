@@ -16,12 +16,14 @@ export class App {
   protected readonly title = signal('bhusky-website');
   protected readonly headerLinks = [
     { linkTest: 'About', href: '#about' },
+    { linkTest: 'Impact', href: '/impact/' },
     { linkTest: 'Huskenomics', href: '#huskenomics' },
     { linkTest: 'Buy Now', href: '#buy-now' },
     { linkTest: 'Join', href: '#join' },
-    { linkTest: 'Impact', href: '/impact/' },
     { linkTest: 'Donate', href: '/donate/', cta: true }
   ];
+  /** Home page totals. Keep in sync with public/impact/index.html when a donation is added. */
+  protected readonly impact = { donated: '≈ $970', donations: 5, rescues: 3, since: 'December 2024' };
   protected readonly contractAddress = '0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018';
 
   protected async copyAddressToClipboard() {
