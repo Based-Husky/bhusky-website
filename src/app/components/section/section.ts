@@ -17,6 +17,8 @@ export class Section {
   /** Text alternative for the section image. */
   @Input() imageAlt: string = '';
   @Input() isBlue: boolean = false;
+  /** First section of the page: larger title on desktop. */
+  @Input() isHero: boolean = false;
   @Input() secondaryButtonLink: string = '';
   @Input() secondaryButtonText: string = '';
 }
