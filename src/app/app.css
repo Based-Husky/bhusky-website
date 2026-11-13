@@ -280,48 +280,62 @@ bhusky-header {
   text-underline-offset: 2px;
 }
 
-/* Bhusky Games: one card per game (cover, description, play button) */
+/* Bhusky Games: vertical cards in a row; on phones they scroll sideways with the next card peeking */
 .game-list {
   display: flex;
-  flex-direction: column;
-  gap: var(--padding-large);
-  margin: var(--padding-large) 0;
+  gap: 20px;
+  margin: 8px 0 4px;
+  padding: 16px 0 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.game-list::-webkit-scrollbar {
+  display: none;
 }
 
 .game-card {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-background);
   color: var(--color-text);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 14px 34px rgba(5, 20, 60, 0.28);
+  box-shadow: 0 10px 24px rgba(5, 20, 60, 0.28);
+}
+
+/* The last card cannot reach the start of the row, so it snaps to the end */
+.game-card:last-child {
+  scroll-snap-align: end;
 }
 
 .game-cover {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
 .game-body {
-  padding: var(--padding-large) 28px;
+  flex: 1;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .game-body h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 900;
   line-height: 1.1;
 }
 
 .game-body p {
-  line-height: 1.5;
+  line-height: 1.45;
   color: #3a4150;
 }
 
@@ -345,13 +359,18 @@ bhusky-header {
   border-radius: 999px;
 }
 
+.game-badge-soon {
+  background-color: #FFF1C2;
+  color: #7a5600;
+}
+
 .game-btn {
-  align-self: flex-start;
-  margin-top: 6px;
+  margin-top: auto;
+  text-align: center;
   background-color: var(--color-primary);
   color: var(--color-primary-text);
   text-decoration: none;
-  padding: var(--padding-medium) var(--padding-extralarge);
+  padding: 14px var(--padding-large);
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px var(--color-primary-shadow);
 }
@@ -361,26 +380,31 @@ bhusky-header {
   background-color: var(--color-primary-focused);
 }
 
+.game-btn-soon,
+.game-btn-soon:hover {
+  background-color: #E6EEFC;
+  color: var(--color-primary);
+  box-shadow: none;
+  font-weight: 600;
+  cursor: default;
+}
+
 .games-more {
   font-size: 0.95rem;
   opacity: 0.92;
 }
 
 @media only screen and (max-width: 700px) {
+  .game-list {
+    margin-left: calc(-1 * var(--padding-side-border));
+    margin-right: calc(-1 * var(--padding-side-border));
+    padding-left: var(--padding-side-border);
+    padding-right: var(--padding-side-border);
+    scroll-padding-left: var(--padding-side-border);
+    scroll-padding-right: var(--padding-side-border);
+  }
+
   .game-card {
-    grid-template-columns: 1fr;
-  }
-
-  .game-cover {
-    height: auto;
-  }
-
-  .game-body {
-    padding: var(--padding-large) 20px;
-  }
-
-  .game-btn {
-    align-self: stretch;
-    text-align: center;
+    flex-basis: min(76vw, 300px);
   }
 }
