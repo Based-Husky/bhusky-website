@@ -36,6 +36,18 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Publishing to bhusky.net
+
+The live site is served by GitHub Pages from the [Based-Husky.github.io](https://github.com/Based-Husky/Based-Husky.github.io) repository.
+
+1. Build: `npm ci` then `npx ng build`.
+2. Copy everything in `dist/bhusky-website/browser/` into the root of `Based-Husky.github.io`, keeping its `CNAME` file.
+3. Merge on `main`: GitHub Pages publishes it in about a minute.
+
+Notes:
+- The Red Hat Display font is self-hosted (`public/fonts/`), so the build downloads nothing from Google Fonts.
+- `/donate/` (Feed the Bowl, Base Pay donations to the charity wallet) is a standalone static page in `public/donate/`, outside the Angular app.
+
 ## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:

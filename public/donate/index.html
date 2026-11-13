@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Feed the Bowl - Based Husky</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="description" content="Donate USDC on Base to the BHUSKY charity wallet. Every time it reaches $200, the full amount goes to a dog rescue.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Based Husky">
+  <meta property="og:url" content="https://bhusky.net/donate/">
+  <meta property="og:title" content="Feed the Bowl: donate to dog rescues with Based Husky">
+  <meta property="og:description" content="Donate USDC on Base to the BHUSKY charity wallet. Every time it reaches $200, the full amount goes to a dog rescue.">
+  <meta property="og:image" content="https://bhusky.net/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@basedhusky">
+  <meta name="twitter:image" content="https://bhusky.net/og-image.png">
+  <link rel="preload" href="/fonts/RedHatDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <style>@font-face{font-family:'Red Hat Display';font-style:normal;font-weight:300 900;font-display:swap;src:url(/fonts/RedHatDisplay-Variable.woff2) format('woff2')}</style>
+  <style>
+    *,*:before,*:after{box-sizing:border-box}*{margin:0}
+    :root{--blue:#1F6DD9;--blue-focus:#367bdb;--ink:#0B0C10;--muted:#4a5568;--tint:#EEF4FD;--line:#d6e2f5;--radius:12px;--side:16px}
+    @media (min-width:768px){:root{--side:32px}}@media (min-width:1100px){:root{--side:128px}}@media (min-width:1550px){:root{--side:256px}}@media (min-width:1750px){:root{--side:384px}}
+    html{background-color:var(--tint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cg id='paw'%3E%3Cpath d='M0-1C-7-1-11 5-11 9c0 3.5 3 5 6 4 2-.6 3.5-1 5-1s3 .4 5 1c3 1 6-.5 6-4 0-4-4-10-11-10z'/%3E%3Cellipse cx='-9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(-28 -9.6 -5)'/%3E%3Cellipse cx='-3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(-8 -3.5 -10)'/%3E%3Cellipse cx='3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(8 3.5 -10)'/%3E%3Cellipse cx='9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(28 9.6 -5)'/%3E%3C/g%3E%3Cg id='bone'%3E%3Crect x='-11' y='-3.2' width='22' height='6.4' rx='3'/%3E%3Ccircle cx='-11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='-11.5' cy='3.6' r='4'/%3E%3Ccircle cx='11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='11.5' cy='3.6' r='4'/%3E%3C/g%3E%3Cg id='heart'%3E%3Cpath d='M0 9C-2 7-10 2-10-3.5-10-7.5-7-10-4.5-10-2-10-.5-8.5 0-7c.5-1.5 2-3 4.5-3 2.5 0 5.5 2.5 5.5 6.5C10 2 2 7 0 9z'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='%231F6DD9' fill-opacity='0.08'%3E%3Cuse href='%23paw' transform='translate(30 36) rotate(-20) scale(1.0)'/%3E%3Cuse href='%23paw' transform='translate(118 24) rotate(15) scale(0.85)'/%3E%3Cuse href='%23paw' transform='translate(176 104) rotate(-35) scale(1.05)'/%3E%3Cuse href='%23paw' transform='translate(72 112) rotate(25) scale(0.9)'/%3E%3Cuse href='%23paw' transform='translate(24 168) rotate(-5) scale(0.8)'/%3E%3Cuse href='%23paw' transform='translate(136 176) rotate(30) scale(1.0)'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px}
+    body{font-family:"Red Hat Display",sans-serif;color:var(--ink);line-height:1.5;padding-top:16px;min-height:100vh;display:flex;flex-direction:column}
+    a{color:var(--blue)}
+    .bar{margin:0 var(--side);background:var(--blue);border-radius:var(--radius);padding:16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 6px #6f9dff8a}
+    .brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;font-size:1.5rem}
+    .brand img{width:38px;height:38px}
+    .home{color:#fff;text-decoration:none;font-weight:500}
+    main{width:100%;max-width:784px;margin:0 auto;padding:32px 32px 48px;display:flex;flex-direction:column;gap:24px;flex:1}
+    h1{font-size:2.2rem;font-weight:900;line-height:1.1}
+    h2{font-size:1.4rem;font-weight:800;margin-bottom:12px}
+    .lead{font-size:1.15rem;margin-top:12px}
+    .card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 10px rgba(31,109,217,.10)}
+    .progress-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+    .amount{font-size:2rem;font-weight:900;color:var(--blue)}
+    .of{color:var(--muted);font-weight:500}
+    .bar-track{height:14px;background:var(--tint);border-radius:999px;margin:12px 0 8px;overflow:hidden}
+    .bar-fill{height:100%;width:0;background:var(--blue);border-radius:999px;transition:width .6s ease}
+    .small{font-size:.95rem;color:var(--muted)}
+    .amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .btn{font:inherit;font-weight:700;font-size:1.1rem;border:0;border-radius:var(--radius);padding:14px 10px;cursor:pointer;background:var(--blue);color:#fff;box-shadow:0 4px 6px #6f9dff8a}
+    .btn:hover{background:var(--blue-focus)}
+    .btn:disabled{opacity:.55;cursor:default}
+    .btn.ghost{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
+    .other{display:flex;gap:12px;margin-top:12px}
+    .other label{position:relative;flex:1;display:flex}
+    .other span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--muted)}
+    .other input{flex:1;width:100%;font:inherit;font-size:1.1rem;padding:12px 12px 12px 30px;border:2px solid var(--line);border-radius:var(--radius);background:#fff}
+    .other input:focus{outline:none;border-color:var(--blue)}
+    .other .btn{flex:0 0 auto;padding:12px 22px}
+    .status{margin-top:14px;min-height:1.5em;font-weight:600}
+    .status.ok{color:#11733b}.status.err{color:#b42318}
+    .addr-row{display:flex;gap:8px;align-items:center;margin:12px 0;background:var(--tint);border-radius:var(--radius);padding:10px 12px}
+    .addr{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;word-break:break-all;flex:1}
+    .copy{font:inherit;font-weight:700;border:0;background:var(--blue);color:#fff;border-radius:8px;padding:8px 12px;cursor:pointer;flex:0 0 auto}
+    .wallet-grid{display:grid;grid-template-columns:1fr;gap:16px;align-items:center}
+    .qr{width:168px;height:168px;justify-self:center;border-radius:8px;overflow:hidden}
+    @media (min-width:600px){.wallet-grid{grid-template-columns:1fr 168px}}
+    ol{padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+    ol li::marker{font-weight:800;color:var(--blue)}
+    .rescues{margin-top:6px;color:var(--muted)}
+    footer{background:var(--ink);color:#fff;padding:24px var(--side);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    footer a{color:#fff}
+    @media (max-width:767px){main{padding:24px 16px 40px}}
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
+    <a class="home" href="/">Home</a>
+  </header>
+
+  <main>
+    <section>
+      <h1>Feed the Bowl</h1>
+      <p class="lead">Every dollar you give goes to the BHUSKY charity wallet on Base. Each time the bowl reaches $200, the full amount goes to a dog rescue.</p>
+    </section>
+
+    <section class="card" aria-labelledby="bowl-title">
+      <div class="progress-head">
+        <h2 id="bowl-title" style="margin:0">Next donation</h2>
+        <div><span class="amount" id="balance">…</span> <span class="of">of $200</span></div>
+      </div>
+      <div class="bar-track" role="progressbar" aria-labelledby="bowl-title" aria-valuemin="0" aria-valuemax="200" aria-valuenow="0" id="track"><div class="bar-fill" id="fill"></div></div>
+      <p class="small" id="balance-note">Live balance of the <a href="https://basescan.org/address/0xBD425647480C10b476822318979785C800Aefe10" target="_blank" rel="noopener">charity wallet on BaseScan</a>, in USDC.</p>
+    </section>
+
+    <section class="card" aria-labelledby="give-title">
+      <h2 id="give-title">Donate with Base Pay</h2>
+      <p class="small">Pay in USDC on Base with a Base Account. No network fees. You can create an account in a few seconds, no seed phrase.</p>
+      <div class="amounts">
+        <button class="btn" data-amount="5" disabled>$5</button>
+        <button class="btn" data-amount="10" disabled>$10</button>
+        <button class="btn" data-amount="25" disabled>$25</button>
+      </div>
+      <form class="other" id="other-form" novalidate>
+        <label><span aria-hidden="true">$</span><input id="other" type="number" inputmode="decimal" min="1" max="10000" step="0.01" placeholder="Other amount" aria-label="Other amount in US dollars"></label>
+        <button class="btn ghost" type="submit" disabled>Donate</button>
+      </form>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="small">A secure Base Pay window will open. If nothing happens, open this page in Safari or Chrome.</p>
+    </section>
+
+    <section class="card" aria-labelledby="any-title">
+      <h2 id="any-title">Prefer another wallet?</h2>
+      <div class="wallet-grid">
+        <div>
+          <p>Send USDC on <strong>Base</strong> to the charity wallet:</p>
+          <div class="addr-row"><span class="addr" id="addr">0xBD425647480C10b476822318979785C800Aefe10</span><button class="copy" id="copy" type="button">Copy</button></div>
+          <p class="small">Base network only. Funds sent on other networks cannot be recovered.</p>
+        </div>
+        <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="QR code of the charity wallet address"><rect width="33" height="33" fill="#fff"/><path fill="#0B0C10" d="M2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM27 2h1v1h-1zM28 2h1v1h-1zM29 2h1v1h-1zM30 2h1v1h-1zM2 3h1v1h-1zM8 3h1v1h-1zM11 3h1v1h-1zM15 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM30 3h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM13 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM24 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM28 4h1v1h-1zM30 4h1v1h-1zM2 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM27 5h1v1h-1zM28 5h1v1h-1zM30 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM17 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM21 7h1v1h-1zM24 7h1v1h-1zM30 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM25 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM14 9h1v1h-1zM20 9h1v1h-1zM21 9h1v1h-1zM2 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM20 10h1v1h-1zM24 10h1v1h-1zM25 10h1v1h-1zM26 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM13 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM21 11h1v1h-1zM24 11h1v1h-1zM26 11h1v1h-1zM27 11h1v1h-1zM29 11h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM19 12h1v1h-1zM22 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM21 13h1v1h-1zM23 13h1v1h-1zM29 13h1v1h-1zM30 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM20 14h1v1h-1zM21 14h1v1h-1zM22 14h1v1h-1zM25 14h1v1h-1zM27 14h1v1h-1zM28 14h1v1h-1zM29 14h1v1h-1zM2 15h1v1h-1zM7 15h1v1h-1zM10 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM17 15h1v1h-1zM21 15h1v1h-1zM23 15h1v1h-1zM26 15h1v1h-1zM27 15h1v1h-1zM29 15h1v1h-1zM5 16h1v1h-1zM6 16h1v1h-1zM8 16h1v1h-1zM10 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM17 16h1v1h-1zM19 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM23 16h1v1h-1zM26 16h1v1h-1zM3 17h1v1h-1zM7 17h1v1h-1zM9 17h1v1h-1zM10 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM17 17h1v1h-1zM19 17h1v1h-1zM20 17h1v1h-1zM24 17h1v1h-1zM25 17h1v1h-1zM26 17h1v1h-1zM29 17h1v1h-1zM3 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM13 18h1v1h-1zM16 18h1v1h-1zM20 18h1v1h-1zM23 18h1v1h-1zM25 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM29 18h1v1h-1zM30 18h1v1h-1zM2 19h1v1h-1zM4 19h1v1h-1zM6 19h1v1h-1zM7 19h1v1h-1zM9 19h1v1h-1zM10 19h1v1h-1zM12 19h1v1h-1zM17 19h1v1h-1zM18 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM24 19h1v1h-1zM26 19h1v1h-1zM30 19h1v1h-1zM2 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM7 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM23 20h1v1h-1zM25 20h1v1h-1zM28 20h1v1h-1zM2 21h1v1h-1zM9 21h1v1h-1zM10 21h1v1h-1zM13 21h1v1h-1zM14 21h1v1h-1zM16 21h1v1h-1zM17 21h1v1h-1zM20 21h1v1h-1zM25 21h1v1h-1zM26 21h1v1h-1zM29 21h1v1h-1zM2 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM8 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM11 22h1v1h-1zM13 22h1v1h-1zM17 22h1v1h-1zM22 22h1v1h-1zM23 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM10 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM17 23h1v1h-1zM22 23h1v1h-1zM26 23h1v1h-1zM27 23h1v1h-1zM30 23h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM7 24h1v1h-1zM8 24h1v1h-1zM11 24h1v1h-1zM14 24h1v1h-1zM15 24h1v1h-1zM16 24h1v1h-1zM17 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM24 24h1v1h-1zM26 24h1v1h-1zM27 24h1v1h-1zM29 24h1v1h-1zM2 25h1v1h-1zM8 25h1v1h-1zM10 25h1v1h-1zM13 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM22 25h1v1h-1zM26 25h1v1h-1zM2 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h1v1h-1zM12 26h1v1h-1zM14 26h1v1h-1zM16 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM27 26h1v1h-1zM28 26h1v1h-1zM29 26h1v1h-1zM2 27h1v1h-1zM4 27h1v1h-1zM5 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM10 27h1v1h-1zM11 27h1v1h-1zM13 27h1v1h-1zM15 27h1v1h-1zM18 27h1v1h-1zM20 27h1v1h-1zM22 27h1v1h-1zM23 27h1v1h-1zM25 27h1v1h-1zM27 27h1v1h-1zM2 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM13 28h1v1h-1zM17 28h1v1h-1zM18 28h1v1h-1zM19 28h1v1h-1zM24 28h1v1h-1zM26 28h1v1h-1zM28 28h1v1h-1zM29 28h1v1h-1zM2 29h1v1h-1zM8 29h1v1h-1zM13 29h1v1h-1zM16 29h1v1h-1zM17 29h1v1h-1zM22 29h1v1h-1zM23 29h1v1h-1zM26 29h1v1h-1zM29 29h1v1h-1zM2 30h1v1h-1zM3 30h1v1h-1zM4 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM7 30h1v1h-1zM8 30h1v1h-1zM10 30h1v1h-1zM11 30h1v1h-1zM12 30h1v1h-1zM14 30h1v1h-1zM16 30h1v1h-1zM19 30h1v1h-1zM21 30h1v1h-1zM23 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1z"/></svg></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="how-title">
+      <h2 id="how-title">How it works</h2>
+      <ol>
+        <li>Your donation goes to the BHUSKY charity wallet. Every transaction is public on BaseScan.</li>
+        <li>When the bowl reaches $200, we donate the full amount to a dog rescue through Endaoment, rotating between:
+          <div class="rescues">NorthStar Pet Rescue · The REAL Bark · Compassion Without Borders · S.T.A.R.T. Rescue · ROLDA</div></li>
+        <li>Every donation is announced on <a href="https://x.com/basedhusky" target="_blank" rel="noopener">X</a> and <a href="https://t.me/bhuskybase" target="_blank" rel="noopener">Telegram</a>, with its transaction.</li>
+      </ol>
+      <p class="small" style="margin-top:16px">The charity wallet is managed by the BHUSKY team. Donations to it are not tax-deductible.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="/" style="font-size:1.3rem"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
+    <div class="small" style="color:#fff">Contact: <a href="mailto:basedhusky369@gmail.com">basedhusky369@gmail.com</a><br>© 2026 Based Husky. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (function () {
+    var WALLET = '0xBD425647480C10b476822318979785C800Aefe10';
+    var USDC = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
+    var GOAL = 200;
+    var $ = function (id) { return document.getElementById(id); };
+    var buttons = [].slice.call(document.querySelectorAll('[data-amount], #other-form button'));
+    var busy = false;
+
+    function fmt(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+    function loadBalance() {
+      var data = '0x70a08231' + '000000000000000000000000' + WALLET.slice(2).toLowerCase();
+      return fetch('https://mainnet.base.org', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_call', params: [{ to: USDC, data: data }, 'latest'] })
+      }).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j || !j.result) throw new Error('no result');
+        var cents = Number(BigInt(j.result) / 10000n);   // USDC has 6 decimals
+        var usd = cents / 100;
+        $('balance').textContent = fmt(usd);
+        var pct = Math.min(100, usd / GOAL * 100);
+        $('fill').style.width = pct + '%';
+        $('track').setAttribute('aria-valuenow', String(Math.min(GOAL, usd)));
+        if (usd >= GOAL) $('balance-note').insertAdjacentHTML('afterbegin', '<strong>The bowl is full: the next donation is on its way.</strong> ');
+      }).catch(function () {
+        $('balance').textContent = '—';
+      });
+    }
+
+    function setStatus(text, kind) {
+      var el = $('status'); el.textContent = text; el.className = 'status' + (kind ? ' ' + kind : '');
+    }
+    function setBusy(b) { busy = b; buttons.forEach(function (x) { x.disabled = b || !window.BhuskyPay; }); }
+
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    function confirmPayment(id, amount) {
+      var tries = 0;
+      function check() {
+        tries++;
+        return window.BhuskyPay.getPaymentStatus({ id: id, testnet: false, telemetry: false, expectedPayment: { amount: amount, recipient: WALLET } })
+          .then(function (s) {
+            if (s.status === 'completed') return true;
+            if (s.status === 'failed') throw new Error(s.reason || 'failed');
+            if (tries >= 20) return false;
+            return wait(3000).then(check);
+          }, function (e) {
+            if (tries >= 20) throw e;
+            return wait(3000).then(check);
+          });
+      }
+      return check();
+    }
+
+    function donate(amount) {
+      if (busy || !window.BhuskyPay) return;
+      var value = Number(amount);
+      if (!(value >= 1 && value <= 10000)) { setStatus('Please enter an amount between $1 and $10,000.', 'err'); return; }
+      amount = String(Math.round(value * 100) / 100);
+      setBusy(true);
+      setStatus('Confirm the donation of ' + fmt(Number(amount)) + ' in the Base Pay window…');
+      window.BhuskyPay.pay({ amount: amount, to: WALLET, testnet: false, telemetry: false })
+        .then(function (res) {
+          setStatus('Thank you! Confirming your donation onchain…');
+          return confirmPayment(res.id, amount);
+        })
+        .then(function (done) {
+          if (done) setStatus('Thank you! Your ' + fmt(Number(amount)) + ' is in the bowl. 💙', 'ok');
+          else setStatus('Thank you! Your donation was sent and is still being confirmed. The balance will update shortly.', 'ok');
+          loadBalance();
+        })
+        .catch(function (e) {
+          var msg = String(e && e.message || e).toLowerCase();
+          if (msg.indexOf('reject') > -1 || msg.indexOf('cancel') > -1 || msg.indexOf('denied') > -1) setStatus('Donation cancelled. No funds were sent.');
+          else if (msg.indexOf('popup') > -1 || msg.indexOf('blocked') > -1) setStatus('The Base Pay window could not open. Please open this page in Safari or Chrome and try again.', 'err');
+          else setStatus('Something went wrong and no donation was confirmed. Please try again, or use the address below.', 'err');
+        })
+        .then(function () { setBusy(false); });
+    }
+
+    document.querySelectorAll('[data-amount]').forEach(function (b) {
+      b.addEventListener('click', function () { donate(b.getAttribute('data-amount')); });
+    });
+    $('other-form').addEventListener('submit', function (e) { e.preventDefault(); donate($('other').value); });
+
+    $('copy').addEventListener('click', function () {
+      var done = function () { $('copy').textContent = 'Copied'; setTimeout(function () { $('copy').textContent = 'Copy'; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(WALLET).then(done, function () {});
+      else { var r = document.createRange(); r.selectNodeContents($('addr')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    });
+
+    window.addEventListener('load', function () { setBusy(false); });
+    loadBalance();
+  })();
+  </script>
+  <script src="/donate/basepay.js" defer onload="this.dataset.loaded=1;document.querySelectorAll('[data-amount], #other-form button').forEach(function(b){b.disabled=false})"></script>
+</body>
+</html>
