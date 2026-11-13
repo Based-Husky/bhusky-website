@@ -10,12 +10,12 @@
   id="about" 
   [isBlue]="true" 
   title="Onchain for a Change" 
-  ctaLink="#join" 
-  ctaText="Join the Pack"
+  ctaLink="/donate/" 
+  ctaText="Donate"
   secondaryButtonLink="/woofpaper.pdf" 
   secondaryButtonText="Get Woofpaper"
   imageUrl="/bhusky-charity.png">
-    <p>Base's one and only Husky is here to bring dog-charity onchain. Help us building a future where every dog can be
+    <p>Base's one and only Husky is here to bring dog-charity onchain. Help us build a future where every dog can be
       happy!</p>
     <br />
     <p>Join our active community and participate in our regular donations.</p>
@@ -23,12 +23,12 @@
 
   <bhusky-section id="huskenomics" title="Huskenomics" imageUrl="/bhusky-burn.png">
     <ul>
-      <li>$BHUSKY is a token with a fixed supply of 1,000,000,000 tokens.</li>
-      <li>We have a 0/0 tax policy, meaning no taxes on buys or sells, allowing for a fair and transparent trading
-        experience.</li>
-      <li>Our contract is renounced, ensuring that the community has full control over the token.</li>
-      <li>Liquidity is locked forever, providing security and stability for our holders.</li>
-      <li>15% of the total supply has been burned, reducing the circulating supply and enhancing scarcity.</li>
+      <li>Fixed supply of 1,000,000,000 $BHUSKY, with no mint function.</li>
+      <li>0/0 tax: no fees on buys or sells.</li>
+      <li>Ownership renounced: no one, including us, can change the contract.</li>
+      <li>The original BHUSKY/WETH liquidity is locked forever (LP tokens burned).</li>
+      <li>~14.6% of the supply is permanently out of circulation: 45.69M burned to the dead address, plus 100.08M that a
+        whale accidentally sent to the token contract, where they can never be recovered.</li>
     </ul>
     <br />
     <p>Join us in making a difference while enjoying the benefits of holding $BHUSKY.</p>
@@ -36,8 +36,8 @@
 
   <bhusky-section id="buy-now" [isBlue]="true" title="Buy $BHUSKY"
     ctaLink="https://app.uniswap.org/swap?outputCurrency=0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018&chain=base"
-    ctaText="Buy on UniSwap" imageUrl="/bhusky-uni.png">
-    <p>Based Husky is available on UniSwap.</p>
+    ctaText="Buy on Uniswap" imageUrl="/bhusky-uni.png">
+    <p>Based Husky is available on Uniswap.</p>
     <br />
     <p class="contract-address">
       <a (click)="copyAddressToClipboard()"><img class="copy-btn" src="/copy.svg" height="32" width="32" /></a>
