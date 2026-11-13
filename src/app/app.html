@@ -76,30 +76,44 @@
   </bhusky-section>
 
   <bhusky-section id="play" [isBlue]="true" [isCentered]="true" title="Bhusky Games">
-    <p>Free games starring Bhusky.</p>
-    <div class="game-list">
-      <article class="game-card">
-        <img class="game-cover" src="/bhusky-runner.jpg" width="600" height="800" loading="lazy"
-          alt="BHUSKY Runner cover: Bhusky running on a country path towards a trail of gold coins" />
-        <div class="game-body">
-          <p class="game-meta"><span class="game-badge">Beta</span> Telegram</p>
-          <h2>BHUSKY Runner</h2>
-          <p>An endless runner: jump, dodge, grab coins and stack power-ups, then challenge your friends to beat your score.</p>
-          <a class="game-btn" href="https://t.me/bhuskygames_bot/runner" target="_blank" rel="noopener">Play on Telegram&nbsp;↗</a>
+    <p>Free games starring Bhusky. More are on the way 👀</p>
+    <div class="game-carousel" role="region" aria-roledescription="carousel" aria-label="Bhusky Games">
+      <div class="game-track" #gameTrack (scroll)="onGameScroll()">
+        @for (game of games; track game.name; let i = $index) {
+        <div class="game-slide" role="group" aria-roledescription="slide" [attr.aria-label]="(i + 1) + ' of ' + games.length + ': ' + game.name">
+          <article class="game-card">
+            <img class="game-cover" [src]="game.cover" width="600" height="800" loading="lazy" [alt]="game.coverAlt" />
+            <div class="game-body">
+              <p class="game-meta"><span [class]="game.comingSoon ? 'game-badge game-badge-soon' : 'game-badge'">{{ game.badge }}</span> {{ game.platforms }}</p>
+              <h2>{{ game.name }}</h2>
+              @for (paragraph of game.text; track $index) {
+              <p>{{ paragraph }}</p>
+              }
+              <div class="game-actions">
+                @for (link of game.links; track link.href) {
+                <a class="game-btn" [href]="link.href" target="_blank" rel="noopener">{{ link.label }}&nbsp;↗</a>
+                }
+                @if (game.soonLabel) {
+                <span class="game-btn game-btn-soon" aria-disabled="true">{{ game.soonLabel }}</span>
+                }
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="game-card">
-        <img class="game-cover" src="/bhusky-shelter.jpg" width="600" height="800" loading="lazy"
-          alt="Bhusky's Shelter cover: Bhusky in front of a snowy wooden dog shelter, next to a full food bowl" />
-        <div class="game-body">
-          <p class="game-meta"><span class="game-badge game-badge-soon">Coming soon</span> Telegram + web</p>
-          <h2>Bhusky's Shelter</h2>
-          <p>Tap, build and adopt: grow a dog shelter into a sanctuary and find your dogs their forever homes.</p>
-          <span class="game-btn game-btn-soon" aria-disabled="true">Opens November 18</span>
+        }
+      </div>
+      @if (games.length > 1) {
+      <div class="game-controls">
+        <button type="button" class="game-arrow game-arrow-prev" aria-label="Previous game" [disabled]="gameIndex() === 0" (click)="showGame(gameIndex() - 1)">‹</button>
+        <div class="game-dots">
+          @for (game of games; track game.name; let i = $index) {
+          <button type="button" [class]="i === gameIndex() ? 'game-dot active' : 'game-dot'" [attr.aria-label]="'Show ' + game.name" [attr.aria-current]="i === gameIndex() ? 'true' : null" (click)="showGame(i)"></button>
+          }
         </div>
-      </article>
+        <button type="button" class="game-arrow game-arrow-next" aria-label="Next game" [disabled]="gameIndex() === games.length - 1" (click)="showGame(gameIndex() + 1)">›</button>
+      </div>
+      }
     </div>
-    <p class="games-more">More games are on the way 👀</p>
   </bhusky-section>
 
   <bhusky-section id="faq" [isCentered]="true" title="FAQ">

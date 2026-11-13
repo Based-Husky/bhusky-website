@@ -280,26 +280,35 @@ bhusky-header {
   text-underline-offset: 2px;
 }
 
-/* Bhusky Games: vertical cards in a row; on phones they scroll sideways with the next card peeking */
-.game-list {
+/* Bhusky Games: a carousel showing one game at a time, with arrows and dots (swipe also works on phones) */
+.game-carousel {
+  margin: 8px 0 0;
+}
+
+.game-track {
   display: flex;
-  gap: 20px;
-  margin: 8px 0 4px;
-  padding: 16px 0 28px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  overscroll-behavior-x: contain;
 }
 
-.game-list::-webkit-scrollbar {
+.game-track::-webkit-scrollbar {
   display: none;
 }
 
-.game-card {
-  flex: 0 0 340px;
+.game-slide {
+  flex: 0 0 100%;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 16px 6px 28px;
   display: flex;
-  flex-direction: column;
+}
+
+.game-card {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
   background-color: var(--color-background);
   color: var(--color-text);
   border-radius: 16px;
@@ -307,35 +316,30 @@ bhusky-header {
   box-shadow: 0 10px 24px rgba(5, 20, 60, 0.28);
 }
 
-/* The last card cannot reach the start of the row, so it snaps to the end */
-.game-card:last-child {
-  scroll-snap-align: end;
-}
-
 .game-cover {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
 .game-body {
-  flex: 1;
-  padding: 20px;
+  padding: var(--padding-large) 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
 }
 
 .game-body h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 900;
   line-height: 1.1;
 }
 
 .game-body p {
-  line-height: 1.45;
+  line-height: 1.5;
   color: #3a4150;
 }
 
@@ -364,13 +368,19 @@ bhusky-header {
   color: #7a5600;
 }
 
+.game-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
 .game-btn {
-  margin-top: auto;
   text-align: center;
   background-color: var(--color-primary);
   color: var(--color-primary-text);
   text-decoration: none;
-  padding: 14px var(--padding-large);
+  padding: var(--padding-medium) var(--padding-extralarge);
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px var(--color-primary-shadow);
 }
@@ -389,22 +399,102 @@ bhusky-header {
   cursor: default;
 }
 
-.games-more {
-  font-size: 0.95rem;
-  opacity: 0.92;
+.game-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
 }
 
-@media only screen and (max-width: 700px) {
-  .game-list {
-    margin-left: calc(-1 * var(--padding-side-border));
-    margin-right: calc(-1 * var(--padding-side-border));
-    padding-left: var(--padding-side-border);
-    padding-right: var(--padding-side-border);
-    scroll-padding-left: var(--padding-side-border);
-    scroll-padding-right: var(--padding-side-border);
+.game-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-family);
+  font-size: 30px;
+  line-height: 1;
+  padding-bottom: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(5, 20, 60, 0.25);
+}
+
+.game-arrow:hover:not(:disabled),
+.game-arrow:focus-visible {
+  background-color: var(--color-background-focused);
+}
+
+.game-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+  box-shadow: none;
+}
+
+.game-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.game-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: width 150ms;
+}
+
+.game-dot.active {
+  width: 28px;
+  background-color: var(--color-primary-text);
+}
+
+@media only screen and (max-width: 600px) {
+  .game-carousel {
+    position: relative;
   }
 
   .game-card {
-    flex-basis: min(76vw, 300px);
+    grid-template-columns: 1fr;
+  }
+
+  .game-cover {
+    height: auto;
+  }
+
+  .game-body {
+    padding: var(--padding-large) 20px;
+    justify-content: flex-start;
+  }
+
+  .game-actions .game-btn {
+    flex: 1 1 100%;
+  }
+
+  /* Arrows over the middle of the cover, so they are visible without scrolling */
+  .game-arrow {
+    position: absolute;
+    z-index: 2;
+    top: calc(16px + (100vw - 2 * var(--padding-side-border) - 12px) * 2 / 3);
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+
+  .game-arrow-prev {
+    left: 14px;
+  }
+
+  .game-arrow-next {
+    right: 14px;
+  }
+
+  .game-arrow:disabled {
+    display: none;
   }
 }
