@@ -26,13 +26,6 @@
     html{background-color:var(--tint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cg id='paw'%3E%3Cpath d='M0-1C-7-1-11 5-11 9c0 3.5 3 5 6 4 2-.6 3.5-1 5-1s3 .4 5 1c3 1 6-.5 6-4 0-4-4-10-11-10z'/%3E%3Cellipse cx='-9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(-28 -9.6 -5)'/%3E%3Cellipse cx='-3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(-8 -3.5 -10)'/%3E%3Cellipse cx='3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(8 3.5 -10)'/%3E%3Cellipse cx='9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(28 9.6 -5)'/%3E%3C/g%3E%3Cg id='bone'%3E%3Crect x='-11' y='-3.2' width='22' height='6.4' rx='3'/%3E%3Ccircle cx='-11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='-11.5' cy='3.6' r='4'/%3E%3Ccircle cx='11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='11.5' cy='3.6' r='4'/%3E%3C/g%3E%3Cg id='heart'%3E%3Cpath d='M0 9C-2 7-10 2-10-3.5-10-7.5-7-10-4.5-10-2-10-.5-8.5 0-7c.5-1.5 2-3 4.5-3 2.5 0 5.5 2.5 5.5 6.5C10 2 2 7 0 9z'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='%231F6DD9' fill-opacity='0.08'%3E%3Cuse href='%23paw' transform='translate(30 36) rotate(-20) scale(1.0)'/%3E%3Cuse href='%23paw' transform='translate(118 24) rotate(15) scale(0.85)'/%3E%3Cuse href='%23paw' transform='translate(176 104) rotate(-35) scale(1.05)'/%3E%3Cuse href='%23paw' transform='translate(72 112) rotate(25) scale(0.9)'/%3E%3Cuse href='%23paw' transform='translate(24 168) rotate(-5) scale(0.8)'/%3E%3Cuse href='%23paw' transform='translate(136 176) rotate(30) scale(1.0)'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px}
     body{font-family:"Red Hat Display",sans-serif;color:var(--ink);line-height:1.5;padding-top:16px;min-height:100vh;display:flex;flex-direction:column}
     a{color:var(--blue)}
-    .bar{margin:0 var(--side);background:var(--blue);border-radius:var(--radius);padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 4px 6px #6f9dff8a}
-    .brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;font-size:1.5rem}
-    .brand img{width:38px;height:38px}
-    .nav{display:flex;align-items:center;gap:16px}
-    .home{color:#fff;text-decoration:none;font-weight:500}
-    .pill{background:#fff;color:var(--blue);font-weight:600;padding:6px 16px;border-radius:999px;text-decoration:none}
-    .pill:hover{background:rgb(217,233,255)}
     main{width:100%;max-width:880px;margin:0 auto;padding:32px 32px 48px;display:flex;flex-direction:column;gap:28px;flex:1}
     h1{font-size:2.2rem;font-weight:900;line-height:1.1}
     h2{font-size:1.4rem;font-weight:800;margin-bottom:12px}
@@ -69,17 +62,64 @@
     .bar-fill{height:100%;width:0;background:var(--blue);border-radius:999px;transition:width .6s ease}
     .btn{display:inline-block;font-weight:700;font-size:1.1rem;border-radius:var(--radius);padding:14px 28px;background:var(--blue);color:#fff;text-decoration:none;box-shadow:0 4px 6px #6f9dff8a;margin-top:16px}
     .btn:hover{background:var(--blue-focus)}
-    footer{background:var(--ink);color:#fff;padding:24px var(--side);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-    footer a{color:#fff}
     @media (max-width:767px){main{padding:24px 16px 40px}.stat b{font-size:1.5rem}.stat{padding:14px 8px}}
-    @media (max-width:420px){.brand{font-size:1.25rem}.nav{gap:12px}}
+
+    /* Shared header and footer, matching the home page */
+    .site-header{line-height:normal;margin:0 var(--side);background:var(--blue);border-radius:var(--radius);padding:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 4px 6px #6f9dff8a}
+    .sh-brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;font-size:1.5rem;flex:0 0 auto}
+    .sh-brand img{width:38px;height:38px;display:block}
+    .sh-links{display:flex;align-items:center;gap:24px}
+    .sh-links a{color:#fff;text-decoration:none;position:relative}
+    .sh-links a:not(.sh-cta):after{content:'';position:absolute;left:0;bottom:0;width:100%;height:.1em;background:#fff;opacity:0;transition:opacity .1s,transform .1s}
+    .sh-links a:not(.sh-cta):hover:after,.sh-links a:not(.sh-cta):focus-visible:after,.sh-links a[aria-current]:not(.sh-cta):after{opacity:1;transform:translate3d(0,.2em,0)}
+    .sh-cta{background:#fff;color:var(--blue) !important;font-weight:600;padding:6px 16px;border-radius:999px}
+    .sh-cta:hover,.sh-cta:focus-visible{background:rgb(217,233,255)}
+    .sh-icons{display:flex;align-items:center;gap:24px}
+    .sh-icons a,.sm-icons a{display:block;line-height:0}
+    .sh-burger,.sm-close{background:none;border:0;padding:0;cursor:pointer;line-height:0;border-radius:6px}
+    .sh-burger{display:none}
+    .sh-menu{line-height:normal;position:fixed;top:0;right:0;bottom:0;z-index:20;min-width:240px;background:#fff;box-shadow:-1px 4px 6px #c0c0c08a;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+    .sh-menu[hidden]{display:none}
+    .sm-close{align-self:flex-end;display:block;margin-left:auto}
+    .sm-links{display:flex;flex-direction:column;align-items:flex-start;padding:24px}
+    .sm-links a{color:var(--ink);text-decoration:none;font-size:18px;padding:12px 0;width:100%;border-top:1px solid #ddd}
+    .sm-links a:first-child{border-top:0}
+    .sm-links a[aria-current]:not(.sm-cta){font-weight:700;color:var(--blue)}
+    .sm-links a.sm-cta{width:auto;margin-top:12px;border-top:0;background:var(--blue);color:#fff;font-weight:600;padding:8px 20px;border-radius:999px}
+    .sm-icons{display:flex;justify-content:space-between;gap:24px;padding:16px;border-top:1px solid #ddd}
+    .sm-icons img{filter:invert(1)}
+    @media (max-width:1179px){.sh-links,.sh-icons{display:none}.sh-burger{display:block}}
+    @media (max-width:420px){.sh-brand{font-size:1.25rem}}
+    .site-footer{line-height:normal;background:var(--ink);color:#fff;padding:32px var(--side) 24px;display:flex;flex-direction:column;gap:32px}
+    .sf-top{display:flex;justify-content:space-between;gap:32px}
+    .sf-brand{max-width:320px}
+    .sf-brand a{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;font-size:1.5rem}
+    .sf-brand img{width:38px;height:38px;display:block}
+    .sf-tagline{margin-top:12px;color:#b8bec9;line-height:1.5}
+    .sf-cols{display:grid;grid-template-columns:repeat(3,minmax(120px,auto));gap:32px}
+    .sf-col{display:flex;flex-direction:column;gap:10px}
+    .sf-col h2{font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8f97a6;margin:0 0 2px}
+    .sf-col a{color:#fff;text-decoration:none}
+    .sf-col a:hover,.sf-col a:focus-visible{text-decoration:underline;text-underline-offset:3px}
+    .sf-bottom{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid #2a2d36;color:#b8bec9;font-size:.95rem}
+    .sf-bottom a{color:#fff}
+    @media (max-width:768px){.sf-top{flex-direction:column}.sf-cols{grid-template-columns:repeat(2,1fr);gap:24px}.sf-bottom{flex-direction:column}}
   </style>
 </head>
 <body>
-  <header class="bar">
-    <a class="brand" href="/"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
-    <nav class="nav"><a class="home" href="/">Home</a><a class="pill" href="/donate/">Donate</a></nav>
+  <header class="site-header">
+    <a class="sh-brand" href="/"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
+    <nav class="sh-links" aria-label="Main"><a href="/#about">About</a><a href="/impact/" aria-current="page">Impact</a><a href="/#play">Play</a><a href="/#huskenomics">Huskenomics</a><a href="/#buy-now">Buy Now</a><a href="/#join">Join</a><a class="sh-cta" href="/donate/">Donate</a></nav>
+    <div class="sh-icons"><a href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a" target="_blank" rel="noopener"><img src="/dex-screener.png" alt="DexScreener" width="24" height="24"></a><a href="https://t.me/bhuskybase" target="_blank" rel="noopener"><img src="/telegram.png" alt="Telegram" width="24" height="24"></a><a href="https://x.com/basedhusky" target="_blank" rel="noopener"><img src="/twitter.png" alt="X" width="24" height="24"></a></div>
+    <button type="button" class="sh-burger" aria-label="Open menu" aria-expanded="false" aria-controls="sh-menu"><img src="/burger-menu.svg" alt="" width="32" height="32"></button>
   </header>
+  <div class="sh-menu" id="sh-menu" hidden>
+    <div>
+      <button type="button" class="sm-close" aria-label="Close menu"><img src="/close.svg" alt="" width="32" height="32"></button>
+      <nav class="sm-links" aria-label="Main"><a href="/#about">About</a><a href="/impact/" aria-current="page">Impact</a><a href="/#play">Play</a><a href="/#huskenomics">Huskenomics</a><a href="/#buy-now">Buy Now</a><a href="/#join">Join</a><a class="sm-cta" href="/donate/">Donate</a></nav>
+    </div>
+    <div class="sm-icons"><a href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a" target="_blank" rel="noopener"><img src="/dex-screener.png" alt="DexScreener" width="36" height="36"></a><a href="https://t.me/bhuskybase" target="_blank" rel="noopener"><img src="/telegram.png" alt="Telegram" width="36" height="36"></a><a href="https://x.com/basedhusky" target="_blank" rel="noopener"><img src="/twitter.png" alt="X" width="36" height="36"></a></div>
+  </div>
 
   <main>
     <section>
@@ -159,16 +199,29 @@
         <div><span class="amount" id="balance">…</span> <span class="of">of $200</span></div>
       </div>
       <div class="bar-track" role="progressbar" aria-labelledby="bowl-title" aria-valuemin="0" aria-valuemax="200" aria-valuenow="0" id="track"><div class="bar-fill" id="fill"></div></div>
-      <p class="small">Since November 2026, donations go through the public BHUSKY charity wallet on Base. This is its live balance in USDC (<a href="https://basescan.org/address/0xBD425647480C10b476822318979785C800Aefe10" target="_blank" rel="noopener">view on BaseScan</a>). Each time it reaches $200, the full amount goes to a dog rescue through Endaoment, and the donation is added here with its transaction.</p>
+      <p class="small">Since November 2026, donations go through the public BHUSKY charity wallet on Base. This is its live balance in USDC (<a href="https://basescan.org/address/0xBD425647480C10b476822318979785C800Aefe10" target="_blank" rel="noopener">view on BaseScan</a>). Each time it reaches $200, we donate it to a dog rescue through Endaoment (which keeps a small processing fee), and the donation is added here with its transaction.</p>
       <a class="btn" href="/donate/">Feed the Bowl</a>
     </section>
 
     <p class="small">Before the charity wallet existed, donations were sent by the BHUSKY team on Ethereum and Base. The charity wallet is managed by the BHUSKY team. Donations are not tax-deductible.</p>
   </main>
 
-  <footer>
-    <a class="brand" href="/" style="font-size:1.3rem"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
-    <div class="small" style="color:#fff">Contact: <a href="mailto:basedhusky369@gmail.com">basedhusky369@gmail.com</a><br>© 2026 Based Husky. All rights reserved.</div>
+  <footer class="site-footer">
+    <div class="sf-top">
+      <div class="sf-brand">
+        <a href="/"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
+        <p class="sf-tagline">The one and only blue husky on Base, bringing dog charity onchain.</p>
+      </div>
+      <nav class="sf-cols" aria-label="Footer">
+        <div class="sf-col"><h2>Project</h2><a href="/impact/">Impact</a><a href="/donate/">Donate</a><a href="/#play">Games</a><a href="/woofpaper/">Woofpaper</a><a href="/#faq">FAQ</a></div>
+        <div class="sf-col"><h2>Token</h2><a href="https://app.uniswap.org/swap?outputCurrency=0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018&amp;chain=base" target="_blank" rel="noopener">Uniswap&nbsp;↗</a><a href="https://basescan.org/token/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018" target="_blank" rel="noopener">BaseScan&nbsp;↗</a><a href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a" target="_blank" rel="noopener">DexScreener&nbsp;↗</a><a href="https://basescan.org/address/0xBD425647480C10b476822318979785C800Aefe10" target="_blank" rel="noopener">Charity wallet&nbsp;↗</a></div>
+        <div class="sf-col"><h2>Community</h2><a href="https://t.me/bhuskybase" target="_blank" rel="noopener">Telegram&nbsp;↗</a><a href="https://x.com/basedhusky" target="_blank" rel="noopener">X&nbsp;↗</a></div>
+      </nav>
+    </div>
+    <div class="sf-bottom">
+      <p>Contact: <a href="mailto:basedhusky369@gmail.com">basedhusky369@gmail.com</a></p>
+      <p>&copy; 2026 Based Husky. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
@@ -188,6 +241,16 @@
       document.getElementById('fill').style.width = Math.min(100, usd / GOAL * 100) + '%';
       document.getElementById('track').setAttribute('aria-valuenow', String(Math.min(GOAL, usd)));
     }).catch(function () { document.getElementById('balance').textContent = '—'; });
+  })();
+  </script>
+  <script>
+  (function () {
+    var menu = document.getElementById('sh-menu'), open = document.querySelector('.sh-burger'), close = menu.querySelector('.sm-close');
+    function set(o) { menu.hidden = !o; open.setAttribute('aria-expanded', o ? 'true' : 'false'); (o ? close : open).focus(); }
+    open.addEventListener('click', function () { set(true); });
+    close.addEventListener('click', function () { set(false); });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) { menu.hidden = true; open.setAttribute('aria-expanded', 'false'); } });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) set(false); });
   })();
   </script>
 </body>
