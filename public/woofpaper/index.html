@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Woofpaper - Based Husky</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="description" content="The BHUSKY Woofpaper: how Based Husky helps rescue dogs, how the token works and what we are building. Every claim with its proof.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Based Husky">
+  <meta property="og:url" content="https://bhusky.net/woofpaper/">
+  <meta property="og:title" content="The BHUSKY Woofpaper">
+  <meta property="og:description" content="How Based Husky helps rescue dogs, how the token works and what we are building. Every claim with its proof.">
+  <meta property="og:image" content="https://bhusky.net/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@basedhusky">
+  <meta name="twitter:image" content="https://bhusky.net/og-image.png">
+  <link rel="preload" href="/fonts/RedHatDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <style>@font-face{font-family:'Red Hat Display';font-style:normal;font-weight:300 900;font-display:swap;src:url(/fonts/RedHatDisplay-Variable.woff2) format('woff2')}</style>
+  <style>
+    *,*:before,*:after{box-sizing:border-box}*{margin:0}
+    :root{--blue:#1F6DD9;--blue-focus:#367bdb;--ink:#0B0C10;--muted:#4a5568;--tint:#EEF4FD;--line:#d6e2f5;--radius:12px;--side:16px}
+    @media (min-width:768px){:root{--side:32px}}@media (min-width:1100px){:root{--side:128px}}@media (min-width:1550px){:root{--side:256px}}@media (min-width:1750px){:root{--side:384px}}
+    html{background-color:var(--tint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cg id='paw'%3E%3Cpath d='M0-1C-7-1-11 5-11 9c0 3.5 3 5 6 4 2-.6 3.5-1 5-1s3 .4 5 1c3 1 6-.5 6-4 0-4-4-10-11-10z'/%3E%3Cellipse cx='-9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(-28 -9.6 -5)'/%3E%3Cellipse cx='-3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(-8 -3.5 -10)'/%3E%3Cellipse cx='3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(8 3.5 -10)'/%3E%3Cellipse cx='9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(28 9.6 -5)'/%3E%3C/g%3E%3Cg id='bone'%3E%3Crect x='-11' y='-3.2' width='22' height='6.4' rx='3'/%3E%3Ccircle cx='-11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='-11.5' cy='3.6' r='4'/%3E%3Ccircle cx='11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='11.5' cy='3.6' r='4'/%3E%3C/g%3E%3Cg id='heart'%3E%3Cpath d='M0 9C-2 7-10 2-10-3.5-10-7.5-7-10-4.5-10-2-10-.5-8.5 0-7c.5-1.5 2-3 4.5-3 2.5 0 5.5 2.5 5.5 6.5C10 2 2 7 0 9z'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='%231F6DD9' fill-opacity='0.08'%3E%3Cuse href='%23paw' transform='translate(30 36) rotate(-20) scale(1.0)'/%3E%3Cuse href='%23paw' transform='translate(118 24) rotate(15) scale(0.85)'/%3E%3Cuse href='%23paw' transform='translate(176 104) rotate(-35) scale(1.05)'/%3E%3Cuse href='%23paw' transform='translate(72 112) rotate(25) scale(0.9)'/%3E%3Cuse href='%23paw' transform='translate(24 168) rotate(-5) scale(0.8)'/%3E%3Cuse href='%23paw' transform='translate(136 176) rotate(30) scale(1.0)'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px}
+    body{font-family:"Red Hat Display",sans-serif;color:var(--ink);line-height:1.55;padding-top:16px;min-height:100vh;display:flex;flex-direction:column}
+    a{color:var(--blue)}
+    .bar{margin:0 var(--side);background:var(--blue);border-radius:var(--radius);padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 4px 6px #6f9dff8a}
+    .brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;font-size:1.5rem}
+    .brand img{width:38px;height:38px}
+    .nav{display:flex;align-items:center;gap:16px}
+    .home{color:#fff;text-decoration:none;font-weight:500}
+    .pill{background:#fff;color:var(--blue);font-weight:600;padding:6px 16px;border-radius:999px;text-decoration:none}
+    .pill:hover{background:rgb(217,233,255)}
+    main{width:100%;max-width:880px;margin:0 auto;padding:32px 32px 48px;display:flex;flex-direction:column;gap:22px;flex:1}
+    h1{font-size:2.4rem;font-weight:900;line-height:1.1}
+    h2{font-size:1.45rem;font-weight:900;margin-bottom:10px;line-height:1.2}
+    h3{font-size:1.1rem;font-weight:800;line-height:1.3;margin:14px 0 4px}
+    p+p{margin-top:10px}
+    .version{display:inline-block;margin-top:10px;font-size:.9rem;font-weight:700;color:var(--blue);background:#E6EEFC;padding:4px 12px;border-radius:999px}
+    .lead{font-size:1.15rem;margin-top:14px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-block;font-weight:600;border-radius:var(--radius);padding:12px 22px;background:var(--blue);color:#fff;text-decoration:none;box-shadow:0 4px 6px #6f9dff8a}
+    .btn:hover{background:var(--blue-focus)}
+    .btn-alt{background:#fff;color:var(--blue);box-shadow:none;outline:2px solid var(--blue);outline-offset:-2px}
+    .btn-alt:hover{background:#D9E9FF}
+    .card{background:#fff;border-radius:16px;padding:24px 26px;box-shadow:0 2px 10px rgba(31,109,217,.10)}
+    .card ul,.card ol{padding-left:1.25em;margin-top:8px}
+    .card li+li{margin-top:6px}
+    .muted{color:var(--muted)}
+    .small{font-size:.95rem;color:var(--muted)}
+    .verify{font-weight:700;font-size:.9em;white-space:nowrap;text-underline-offset:2px}
+    .addr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;overflow-wrap:anywhere;background:var(--tint);padding:2px 6px;border-radius:6px}
+    .timeline{list-style:none;padding-left:0 !important}
+    .timeline li{display:grid;grid-template-columns:110px 1fr;gap:12px}
+    .timeline b{color:var(--blue)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+    .stat{background:var(--tint);border-radius:12px;padding:12px 8px;text-align:center}
+    .stat b{display:block;font-size:1.6rem;font-weight:900;color:var(--blue);line-height:1.1}
+    .stat span{font-size:.9rem;color:var(--muted)}
+    .games{display:grid;gap:12px;margin-top:10px}
+    .game{background:var(--tint);border-radius:12px;padding:14px 16px}
+    .game h3{margin:0 0 4px}
+    .tag{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:#E6EEFC;color:var(--blue);margin-left:6px;vertical-align:2px}
+    .tag-soon{background:#FFF1C2;color:#7a5600}
+    footer{background:var(--ink);color:#fff;padding:24px var(--side);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    footer a{color:#fff}
+    .print-only{display:none}
+    @media (max-width:767px){main{padding:24px 16px 40px}h1{font-size:2rem}.card{padding:20px}.timeline li{grid-template-columns:1fr;gap:0}.stat b{font-size:1.35rem}}
+    @media (max-width:420px){.brand{font-size:1.25rem}.nav{gap:12px}}
+    @media print{
+      @page{size:A4;margin:16mm 16mm 18mm}
+      html{background:#fff}
+      body{padding-top:0;font-size:10.5pt;line-height:1.45}
+      .bar,footer,.actions{display:none}
+      .print-only{display:block}
+      main{max-width:none;padding:0;gap:12px}
+      h1{font-size:24pt}
+      h2{font-size:15pt}
+      .card{box-shadow:none;border:1px solid var(--line);padding:14px 16px;break-inside:avoid}
+      .card.long{break-inside:auto}
+      a{text-decoration:none}
+      .verify{display:none}
+      h2,h3{break-after:avoid}
+      .game,.stats,.stat,li,p{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
+    <nav class="nav"><a class="home" href="/">Home</a><a class="pill" href="/donate/">Donate</a></nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>The BHUSKY Woofpaper</h1>
+      <span class="version">Version 2 · November 2026</span>
+      <p class="lead">How Based Husky helps rescue dogs, how the token works and what we are building. Wherever possible, each claim links to its proof, so you can check it yourself.</p>
+      <p class="small print-only" style="margin-top:8px">Online version, with all the links: bhusky.net/woofpaper</p>
+      <div class="actions">
+        <a class="btn" href="/woofpaper.pdf" download>Download PDF</a>
+        <a class="btn btn-alt" href="/impact/">See every donation</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>1. What is Based Husky?</h2>
+      <p>Based Husky ($BHUSKY) is a community token on Base with one mission: helping rescue dogs. Its mascot, Bhusky, is the one and only blue husky on Base.</p>
+      <p>$BHUSKY is a community token, not an investment product. Holding it means being part of a community that funds dog rescues and can check where every dollar goes.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Our story so far</h2>
+      <ul class="timeline">
+        <li><b>Sep 2024</b><span>$BHUSKY launches on Base with a fair launch on Apestore: no team, VC or advisor allocation.</span></li>
+        <li><b>Dec 2024</b><span>The community embraces a charity mission. A week later, the first donation goes to Lovable Paws Rescue (South Carolina, USA).</span></li>
+        <li><b>Jul–Aug 2025</b><span>Two donations to Dharamsala Animal Rescue (India), the second one together with Pawthereum and Base Printer for International Dog Day.</span></li>
+        <li><b>Sep 2025</b><span>A custom orthopaedic boot for Pifa, a dog cared for by K9 Rescue (Eastern Europe &amp; Ukraine): our first donation made entirely on Base.</span></li>
+        <li><b>Oct 2025</b><span>The "Adopt with $BHUSKY" NFT cards on vibe.market share their fees with a dog rescue.</span></li>
+        <li><b>2026</b><span>Bhusky Games: BHUSKY Runner and Bhusky's Crypt open on Telegram, with Bhusky's Shelter coming next.</span></li>
+        <li><b>Nov 2026</b><span>An official charity wallet on Base, the Feed the Bowl donation page and the Impact page with every donation and its proof.</span></li>
+      </ul>
+    </section>
+
+    <section class="card long">
+      <h2>3. How our giving works</h2>
+      <div class="stats">
+        <div class="stat"><b>≈ $970</b><span>donated</span></div>
+        <div class="stat"><b>5</b><span>donations</span></div>
+        <div class="stat"><b>3</b><span>rescues</span></div>
+      </div>
+      <p class="small">By BHUSKY and partners since December 2024, in US dollars at the time of each donation. Every donation is listed on <a href="/impact/">bhusky.net/impact</a> with its transaction.</p>
+      <h3>The charity wallet</h3>
+      <p>Since November 2026, donations go through one public wallet on Base: <span class="addr">0xBD425647480C10b476822318979785C800Aefe10</span> <a class="verify" href="https://basescan.org/address/0xBD425647480C10b476822318979785C800Aefe10" target="_blank" rel="noopener">Verify&nbsp;↗</a></p>
+      <ol>
+        <li><b>Anyone can feed the bowl:</b> USDC on Base with Base Pay at <a href="/donate/">bhusky.net/donate</a>, or from any wallet.</li>
+        <li><b>Every time it reaches $200,</b> we donate it to a dog rescue through Endaoment (which keeps a small processing fee), rotating between NorthStar Pet Rescue, The REAL Bark, Compassion Without Borders, S.T.A.R.T. Rescue and ROLDA.</li>
+        <li><b>Every donation is published</b> on the Impact page with its transaction, like all the ones before it.</li>
+      </ol>
+      <h3>Where the money comes from</h3>
+      <p>There is no tax on trades, so buying or selling $BHUSKY does not send money to the charity wallet. Donations come from the community feeding the bowl, from our products and from the BHUSKY team.</p>
+      <p class="small">The charity wallet is managed by the BHUSKY team. Donations to it are not tax-deductible.</p>
+    </section>
+
+    <section class="card long">
+      <h2>4. Huskenomics</h2>
+      <ul>
+        <li>Fixed supply of 1,000,000,000 $BHUSKY, with no mint function. <a class="verify" href="https://basescan.org/token/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+        <li>0/0 tax: no fees on buys or sells. <a class="verify" href="https://basescan.org/address/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018#code" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+        <li>Ownership renounced: no one, including us, can change the contract. <a class="verify" href="https://basescan.org/address/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018#readContract" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+        <li>The original BHUSKY/WETH liquidity on Uniswap V2 is locked forever: its LP tokens are burned. <a class="verify" href="https://basescan.org/token/0x9d4021a55c70e47b048528a885750b9d14b26c8a#balances" target="_blank" rel="noopener">Verify&nbsp;↗</a></li>
+        <li>About 14.6% of the supply is permanently out of circulation: about 45.69M burned to the dead address, plus 100.08M that a holder accidentally sent to the token contract on March 9, 2025, where they can never move again. <a class="verify" href="https://basescan.org/token/0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018?a=0x000000000000000000000000000000000000dEaD" target="_blank" rel="noopener">Verify burn&nbsp;↗</a> <a class="verify" href="https://basescan.org/tx/0x96cb8bc6a5d6f1f3b18a0785eec3eedaff45298027866b7901d9628387f4398d" target="_blank" rel="noopener">Verify transfer&nbsp;↗</a></li>
+        <li>Fair launch: no team, VC or advisor allocation, no vesting and no unlocks. The project's current maintainer holds about 8% of the supply, bought on the open market.</li>
+      </ul>
+      <p class="small" style="margin-top:12px">Contract (Base): <span class="addr">0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018</span><br>Trading on Uniswap: BHUSKY/WETH (V2) and BHUSKY/USDC (V3).</p>
+    </section>
+
+    <section class="card long">
+      <h2>5. What we build</h2>
+      <h3>Bhusky Games</h3>
+      <div class="games">
+        <div class="game"><h3>BHUSKY Runner <span class="tag">Beta</span></h3><p>An endless runner on Telegram: jump, dodge, grab coins, stack power-ups and challenge your friends.</p></div>
+        <div class="game"><h3>Bhusky's Crypt <span class="tag">Beta</span></h3><p>A roguelike dungeon crawler on Telegram, with two classes, five bosses, permanent upgrades and a Daily Run.</p></div>
+        <div class="game"><h3>Bhusky's Shelter <span class="tag tag-soon">Coming soon</span></h3><p>Tap, build and adopt: grow a dog shelter into a sanctuary, on Telegram and on the web, where players can also feed the bowl.</p></div>
+      </div>
+      <p style="margin-top:12px">Today, coins and points inside the games are just for fun: they are not tokens and have no monetary value. Web3 features, including wallet connection, are planned for the final versions of the games, with web versions on Base.</p>
+      <h3>ShelterSite <span class="tag tag-soon">In development</span></h3>
+      <p>A free, open-source tool by BHUSKY that lets shelters publish multilingual adoption websites for their dogs.</p>
+      <h3>Adopt with $BHUSKY</h3>
+      <p>A collection of NFT cards on vibe.market, part of whose fees go to a dog rescue.</p>
+      <h3>Dog-care tips</h3>
+      <p>Practical tips on dog health and care, shared on X and Telegram with #BhuskyTips, plus dog trivia inside Bhusky's Shelter.</p>
+    </section>
+
+    <section class="card">
+      <h2>6. Community</h2>
+      <p>The pack lives on <a href="https://t.me/bhuskybase" target="_blank" rel="noopener">Telegram</a> and <a href="https://x.com/basedhusky" target="_blank" rel="noopener">X</a>: game updates, a secret Word of the week for Bhusky's Shelter, contests and community events.</p>
+      <p>We work with projects that share our values on Base. Gems of Base, Pawthereum and Base Printer have already joined us in donations.</p>
+    </section>
+
+    <section class="card">
+      <h2>7. What's next</h2>
+      <ul>
+        <li>Every BHUSKY product will feed the same public charity wallet.</li>
+        <li>More games for dog lovers, and web versions on Base with wallet features.</li>
+        <li>The first release of ShelterSite.</li>
+        <li>An application for fiscal sponsorship, to formalize our giving.</li>
+        <li>Every new donation added to the Impact page with its transaction.</li>
+      </ul>
+      <p class="small" style="margin-top:10px">Plans can change. What is live is always on bhusky.net.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Official links and safety</h2>
+      <ul>
+        <li>Website: <a href="https://bhusky.net">bhusky.net</a> · X: <a href="https://x.com/basedhusky" target="_blank" rel="noopener">@basedhusky</a> · Telegram: <a href="https://t.me/bhuskybase" target="_blank" rel="noopener">t.me/bhuskybase</a></li>
+        <li>Many tokens are called Husky. The only official $BHUSKY is the contract above, on Base.</li>
+        <li>Always copy addresses from bhusky.net. The BHUSKY team will never ask for your seed phrase or private keys.</li>
+      </ul>
+      <p class="small" style="margin-top:12px">$BHUSKY is a community token, not an investment product, and this Woofpaper is not financial advice. Crypto is volatile: only buy what you can afford to lose. Contact: <a href="mailto:basedhusky369@gmail.com">basedhusky369@gmail.com</a>. This version replaces the Woofpaper of July 2025.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="/" style="font-size:1.3rem"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
+    <div class="small" style="color:#fff">Contact: <a href="mailto:basedhusky369@gmail.com">basedhusky369@gmail.com</a><br>© 2026 Based Husky. All rights reserved.</div>
+  </footer>
+</body>
+</html>
