@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'bhusky-icon-link',
   imports: [],
   templateUrl: './icon-link.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './icon-link.css'
 })
 export class IconLink {

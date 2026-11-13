@@ -40,7 +40,7 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 The live site is served by GitHub Pages from the [Based-Husky.github.io](https://github.com/Based-Husky/Based-Husky.github.io) repository.
 
-1. Build: `npm ci` then `npx ng build`.
+1. Build: `npm ci` then `npx ng build` (Angular 22 needs Node.js 22.22+, 24.15+ or 26+).
 2. Copy everything in `dist/bhusky-website/browser/` into the root of `Based-Husky.github.io`, keeping its `CNAME` file.
 3. Merge on `main`: GitHub Pages publishes it in about a minute.
 
