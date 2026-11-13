@@ -1,7 +1,11 @@
 <section [class]="(isBlue ? 'section-container-blue' : 'section-container') + (isHero ? ' section-hero' : '') + (isCentered ? ' section-centered' : '')">
     <div class="section-text-content">
         <ng-content select="[sectionKicker]"></ng-content>
+        @if (isHero) {
         <h1>{{title}}</h1>
+        } @else {
+        <h2 class="section-title">{{title}}</h2>
+        }
         <ng-content></ng-content>
         @if (ctaLink != "") {
         <br />

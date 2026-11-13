@@ -48,7 +48,7 @@ bhusky-header {
 
 /* Huskenomics: links to the onchain proof of each claim */
 .verify {
-  color: var(--color-primary);
+  color: var(--color-primary-ink);
   font-size: 0.9em;
   font-weight: 700;
   white-space: nowrap;
@@ -150,7 +150,6 @@ bhusky-header {
 
 .impact-note {
   font-size: 0.95rem;
-  opacity: 0.92;
 }
 
 @media only screen and (min-width: 993px) {
@@ -218,7 +217,6 @@ bhusky-header {
 
 .buy-note {
   font-size: 0.95rem;
-  opacity: 0.92;
 }
 
 /* FAQ: native disclosure widgets, readable line length */
@@ -333,7 +331,7 @@ bhusky-header {
   gap: 12px;
 }
 
-.game-body h2 {
+.game-body h3 {
   font-size: 1.8rem;
   font-weight: 900;
   line-height: 1.1;
@@ -355,7 +353,7 @@ bhusky-header {
 
 .game-badge {
   background-color: #E6EEFC;
-  color: var(--color-primary);
+  color: var(--color-primary-ink);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -394,7 +392,7 @@ bhusky-header {
 .game-btn-soon,
 .game-btn-soon:hover {
   background-color: #E6EEFC;
-  color: var(--color-primary);
+  color: var(--color-primary-ink);
   box-shadow: none;
   font-weight: 600;
   cursor: default;
@@ -505,4 +503,11 @@ bhusky-header {
   .game-arrow:disabled {
     display: none;
   }
+}
+
+/* Main landmark around the sections, keeping the same spacing as before */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-large);
 }

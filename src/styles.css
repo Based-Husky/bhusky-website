@@ -24,6 +24,8 @@ html {
     --color-primary-shadow: #6f9dff8a;
     --color-background-shadow: #c0c0c08a;
     --color-primary-focused: #367bdb;
+    /* Brand blue, slightly darker, for small text on light tints (WCAG AA 4.5:1) */
+    --color-primary-ink: #1A62C7;
     --color-background-focused: rgb(217, 233, 255);
 
     --padding-side-border: 8px;
