@@ -47,6 +47,7 @@ The live site is served by GitHub Pages from the [Based-Husky.github.io](https:/
 Notes:
 - The Red Hat Display font is self-hosted (`public/fonts/`), so the build downloads nothing from Google Fonts.
 - `/donate/` (Feed the Bowl, Base Pay donations to the charity wallet) is a standalone static page in `public/donate/`, outside the Angular app.
+- `/woofpaper/` (the Woofpaper, version 2) is a standalone static page in `public/woofpaper/`. `public/woofpaper.pdf` is generated from that page with the browser's print stylesheet (A4): after editing the page, regenerate the PDF so the two match.
 - `/impact/` (every donation with its proof) is a standalone static page in `public/impact/`. To add a donation, copy a `<li class="don">` card to the top of the list and update the totals, the rescue cards and the meta description. Then update the same totals in `impact` in `src/app/app.ts` (home page pill and About section).
 
 ## Running unit tests
