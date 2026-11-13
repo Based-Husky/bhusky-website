@@ -1,13 +1,14 @@
 <div id="app-container">
   <bhusky-header [links]="headerLinks"></bhusky-header>
 
-  <bhusky-section title="$BHUSKY - Bringing Dog Charity Onchain" ctaLink="#buy-now" ctaText="Buy Now"
+  <bhusky-section [isHero]="true" title="$BHUSKY - Bringing Dog Charity Onchain" ctaLink="#buy-now" ctaText="Buy Now"
+    secondaryButtonLink="/donate/" secondaryButtonText="Donate"
     imageUrl="/bhusky-hero.png" imageAlt="Bhusky, the blue husky mascot, jumping with joy">
     <a sectionKicker class="impact-pill" href="/impact/">
       <span class="impact-pill-heart" aria-hidden="true">💙</span>
       <span class="impact-pill-text"><strong>{{impact.donated}} donated to dog rescues</strong><span class="impact-pill-more">See the proof&nbsp;→</span></span>
     </a>
-    <p>The One and Only Blue Husky on Base</p>
+    <p class="hero-subtitle">The One and Only Blue Husky on Base</p>
   </bhusky-section>
 
   <bhusky-section 
