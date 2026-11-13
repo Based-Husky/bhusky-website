@@ -1,4 +1,4 @@
-<section [class]="(isBlue ? 'section-container-blue' : 'section-container') + (isHero ? ' section-hero' : '')">
+<section [class]="(isBlue ? 'section-container-blue' : 'section-container') + (isHero ? ' section-hero' : '') + (isCentered ? ' section-centered' : '')">
     <div class="section-text-content">
         <ng-content select="[sectionKicker]"></ng-content>
         <h1>{{title}}</h1>

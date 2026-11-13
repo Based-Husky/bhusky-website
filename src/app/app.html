@@ -49,13 +49,19 @@
   <bhusky-section id="buy-now" [isBlue]="true" title="Buy $BHUSKY"
     ctaLink="https://app.uniswap.org/swap?outputCurrency=0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018&chain=base"
     ctaText="Buy on Uniswap" imageUrl="/bhusky-uni.png" imageAlt="Bhusky riding a white unicorn">
-    <p>Based Husky is available on Uniswap.</p>
-    <br />
+    <p>Based Husky lives on Base and trades on Uniswap. New to crypto? It takes three steps:</p>
+    <ol class="buy-steps">
+      <li><strong>Get a wallet that supports Base</strong>, like Coinbase Wallet, MetaMask or Rabby.</li>
+      <li><strong>Add some ETH on Base</strong>: buy it in your wallet, or withdraw it from an exchange choosing the Base network.</li>
+      <li><strong>Swap ETH for $BHUSKY on Uniswap</strong> with the button below, and check that the contract address matches this one:</li>
+    </ol>
     <p class="contract-address">
       <a role="button" tabindex="0" aria-label="Copy contract address" (click)="copyAddressToClipboard()"
         (keydown.enter)="copyAddressToClipboard()"><img class="copy-btn" src="/copy.svg" alt="" height="32" width="32" /></a>
-      CA: {{contractAddress}}
+      CA:&nbsp;{{contractAddress}}
     </p>
+    <p class="copy-status" aria-live="polite">{{ copied() ? 'Copied ✓' : '' }}</p>
+    <p class="buy-note">Many tokens are called Husky. The only official $BHUSKY is this contract, on Base.</p>
   </bhusky-section>
 
   <bhusky-section id="join" title="Join the Pack!" imageUrl="/bhusky-community.png"
@@ -66,6 +72,31 @@
         [openInNewTab]="true"></bhusky-icon-link>
       <bhusky-icon-link [size]="42" class="join-icon-link" iconPath="/twitter.png" label="X" href="https://x.com/basedhusky"
         [openInNewTab]="true"></bhusky-icon-link>
+    </div>
+  </bhusky-section>
+
+  <bhusky-section id="faq" [isBlue]="true" [isCentered]="true" title="FAQ">
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How does $BHUSKY help dogs?</summary>
+        <p>$BHUSKY is the token that brings our community together. There is no tax on trades, so buying or selling does not send money to the charity wallet: donations come from the community feeding the bowl, from our products and from the BHUSKY team. Every donation is public, with its onchain proof.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where do the donations go?</summary>
+        <p>Into our <a href="https://basescan.org/address/0xBD425647480C10b476822318979785C800Aefe10" target="_blank" rel="noopener">charity wallet on Base</a>. Every time it reaches $200, we donate it to a dog rescue through Endaoment, rotating between five rescues. Each donation goes on our <a href="/impact/">Impact page</a> with its transaction.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How can I donate?</summary>
+        <p>On our <a href="/donate/">Donate page</a>: pay in USDC with Base Pay in a few seconds, or send USDC on Base from any wallet.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the contract safe?</summary>
+        <p>No one can promise that about any token, but you can check the facts yourself: no mint function, no tax, ownership renounced and the original liquidity locked forever. Each point in <a href="#huskenomics">Huskenomics</a> links to BaseScan. Only buy what you can afford to lose.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are donations tax-deductible?</summary>
+        <p>No. The charity wallet is managed by the BHUSKY team, so donations to it are not tax-deductible.</p>
+      </details>
     </div>
   </bhusky-section>
 
