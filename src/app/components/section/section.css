@@ -4,7 +4,8 @@
     width: 100%;
 }
 
-.section-text-content h1 {
+.section-text-content h1,
+.section-text-content .section-title {
     font-size: var(--font-size-headline);
     font-weight: 900;
     margin-bottom: var(--padding-medium);

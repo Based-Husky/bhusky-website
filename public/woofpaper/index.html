@@ -24,7 +24,7 @@
   <style>@font-face{font-family:'Red Hat Display';font-style:normal;font-weight:300 900;font-display:swap;src:url(/fonts/RedHatDisplay-Variable.woff2) format('woff2')}</style>
   <style>
     *,*:before,*:after{box-sizing:border-box}*{margin:0}
-    :root{--blue:#1F6DD9;--blue-focus:#367bdb;--ink:#0B0C10;--muted:#4a5568;--tint:#EEF4FD;--line:#d6e2f5;--radius:12px;--side:16px}
+    :root{--blue:#1F6DD9;--blue-ink:#1A62C7;--blue-focus:#367bdb;--ink:#0B0C10;--muted:#4a5568;--tint:#EEF4FD;--line:#d6e2f5;--radius:12px;--side:16px}
     @media (min-width:768px){:root{--side:32px}}@media (min-width:1100px){:root{--side:128px}}@media (min-width:1550px){:root{--side:256px}}@media (min-width:1750px){:root{--side:384px}}
     html{background-color:var(--tint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cg id='paw'%3E%3Cpath d='M0-1C-7-1-11 5-11 9c0 3.5 3 5 6 4 2-.6 3.5-1 5-1s3 .4 5 1c3 1 6-.5 6-4 0-4-4-10-11-10z'/%3E%3Cellipse cx='-9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(-28 -9.6 -5)'/%3E%3Cellipse cx='-3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(-8 -3.5 -10)'/%3E%3Cellipse cx='3.5' cy='-10' rx='3.5' ry='4.7' transform='rotate(8 3.5 -10)'/%3E%3Cellipse cx='9.6' cy='-5' rx='3.4' ry='4.4' transform='rotate(28 9.6 -5)'/%3E%3C/g%3E%3Cg id='bone'%3E%3Crect x='-11' y='-3.2' width='22' height='6.4' rx='3'/%3E%3Ccircle cx='-11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='-11.5' cy='3.6' r='4'/%3E%3Ccircle cx='11.5' cy='-3.6' r='4'/%3E%3Ccircle cx='11.5' cy='3.6' r='4'/%3E%3C/g%3E%3Cg id='heart'%3E%3Cpath d='M0 9C-2 7-10 2-10-3.5-10-7.5-7-10-4.5-10-2-10-.5-8.5 0-7c.5-1.5 2-3 4.5-3 2.5 0 5.5 2.5 5.5 6.5C10 2 2 7 0 9z'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='%231F6DD9' fill-opacity='0.08'%3E%3Cuse href='%23paw' transform='translate(30 36) rotate(-20) scale(1.0)'/%3E%3Cuse href='%23paw' transform='translate(118 24) rotate(15) scale(0.85)'/%3E%3Cuse href='%23paw' transform='translate(176 104) rotate(-35) scale(1.05)'/%3E%3Cuse href='%23paw' transform='translate(72 112) rotate(25) scale(0.9)'/%3E%3Cuse href='%23paw' transform='translate(24 168) rotate(-5) scale(0.8)'/%3E%3Cuse href='%23paw' transform='translate(136 176) rotate(30) scale(1.0)'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px}
     body{font-family:"Red Hat Display",sans-serif;color:var(--ink);line-height:1.55;padding-top:16px;min-height:100vh;display:flex;flex-direction:column}
@@ -34,7 +34,7 @@
     h2{font-size:1.45rem;font-weight:900;margin-bottom:10px;line-height:1.2}
     h3{font-size:1.1rem;font-weight:800;line-height:1.3;margin:14px 0 4px}
     p+p{margin-top:10px}
-    .version{display:inline-block;margin-top:10px;font-size:.9rem;font-weight:700;color:var(--blue);background:#E6EEFC;padding:4px 12px;border-radius:999px}
+    .version{display:inline-block;margin-top:10px;font-size:.9rem;font-weight:700;color:var(--blue-ink);background:#E6EEFC;padding:4px 12px;border-radius:999px}
     .lead{font-size:1.15rem;margin-top:14px}
     .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .btn{display:inline-block;font-weight:600;border-radius:var(--radius);padding:12px 22px;background:var(--blue);color:#fff;text-decoration:none;box-shadow:0 4px 6px #6f9dff8a}
@@ -58,7 +58,7 @@
     .games{display:grid;gap:12px;margin-top:10px}
     .game{background:var(--tint);border-radius:12px;padding:14px 16px}
     .game h3{margin:0 0 4px}
-    .tag{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:#E6EEFC;color:var(--blue);margin-left:6px;vertical-align:2px}
+    .tag{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:#E6EEFC;color:var(--blue-ink);margin-left:6px;vertical-align:2px}
     .tag-soon{background:#FFF1C2;color:#7a5600}
     .print-only{display:none}
     @media (max-width:767px){main{padding:24px 16px 40px}h1{font-size:2rem}.card{padding:20px}.timeline li{grid-template-columns:1fr;gap:0}.stat b{font-size:1.35rem}}
@@ -125,7 +125,7 @@
   <header class="site-header">
     <a class="sh-brand" href="/"><img src="/logo-white.svg" alt="" width="38" height="38">Based Husky</a>
     <nav class="sh-links" aria-label="Main"><a href="/#about">About</a><a href="/impact/">Impact</a><a href="/#play">Play</a><a href="/#huskenomics">Huskenomics</a><a href="/#buy-now">Buy Now</a><a href="/#join">Join</a><a class="sh-cta" href="/donate/">Donate</a></nav>
-    <div class="sh-icons"><a href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a" target="_blank" rel="noopener"><img src="/dex-screener.png" alt="DexScreener" width="24" height="24"></a><a href="https://t.me/bhuskybase" target="_blank" rel="noopener"><img src="/telegram.png" alt="Telegram" width="24" height="24"></a><a href="https://x.com/basedhusky" target="_blank" rel="noopener"><img src="/twitter.png" alt="X" width="24" height="24"></a></div>
+    <div class="sh-icons" role="group" aria-label="Social"><a href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a" target="_blank" rel="noopener"><img src="/dex-screener.png" alt="DexScreener" width="24" height="24"></a><a href="https://t.me/bhuskybase" target="_blank" rel="noopener"><img src="/telegram.png" alt="Telegram" width="24" height="24"></a><a href="https://x.com/basedhusky" target="_blank" rel="noopener"><img src="/twitter.png" alt="X" width="24" height="24"></a></div>
     <button type="button" class="sh-burger" aria-label="Open menu" aria-expanded="false" aria-controls="sh-menu"><img src="/burger-menu.svg" alt="" width="32" height="32"></button>
   </header>
   <div class="sh-menu" id="sh-menu" hidden>

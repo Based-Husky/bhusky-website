@@ -3,12 +3,12 @@
     @if (showBurger) {
     <a class="burger-menu-btn" role="button" tabindex="0" aria-label="Open menu" (click)="toggleMenu()" (keydown.enter)="toggleMenu()"><img src="/burger-menu.svg" alt="" height="32" width="32" /></a>
     } @else {
-    <nav #linksRef class="header-nav">
+    <nav #linksRef class="header-nav" aria-label="Main">
         @for (link of links; track $index) {
         <a [class]="link.cta ? 'header-link header-link-cta' : 'header-link'" [href]="link.href">{{ link.linkTest }}</a>
         }
     </nav>
-    <nav #iconsRef class="header-nav">
+    <nav #iconsRef class="header-nav" aria-label="Social">
         <bhusky-icon-link iconPath="/dex-screener.png" label="DexScreener"
             href="https://dexscreener.com/base/0x9d4021a55c70e47b048528a885750b9d14b26c8a"
             [openInNewTab]="true"></bhusky-icon-link>
