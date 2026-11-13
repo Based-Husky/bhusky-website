@@ -14,6 +14,8 @@ export class Section {
   @Input() ctaLink: string = '';
   @Input() ctaText: string = '';
   @Input() imageUrl: string = '';
+  /** Text alternative for the section image. */
+  @Input() imageAlt: string = '';
   @Input() isBlue: boolean = false;
   @Input() secondaryButtonLink: string = '';
   @Input() secondaryButtonText: string = '';
