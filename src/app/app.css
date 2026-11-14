@@ -74,7 +74,7 @@ bhusky-header {
   border-radius: 999px;
   background-color: var(--color-background);
   border: 1px solid #d6e4fa;
-  box-shadow: 0 4px 12px rgba(31, 109, 217, 0.12);
+  box-shadow: 0 4px 12px rgba(13, 116, 219, 0.12);
   color: var(--color-text);
   font-size: 0.95rem;
   line-height: 1.3;
@@ -230,7 +230,7 @@ bhusky-header {
   background-color: var(--color-background);
   border: 1px solid #d6e4fa;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(31, 109, 217, 0.08);
+  box-shadow: 0 4px 12px rgba(13, 116, 219, 0.08);
 }
 
 .faq-item summary {

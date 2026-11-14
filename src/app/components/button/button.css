@@ -30,7 +30,7 @@
 .btn-secondary.btn-on-white {
     outline: 2px solid var(--color-primary);
     outline-offset: -2px;
-    color: var(--color-primary);
+    color: var(--color-primary-ink);
     font-weight: 500;
 }
 
