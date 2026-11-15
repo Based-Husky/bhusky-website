@@ -38,7 +38,7 @@ export class App {
     { linkTest: 'Donate', href: '/donate/', cta: true }
   ];
   /** Home page totals. Keep in sync with public/impact/index.html when a donation is added. */
-  protected readonly impact = { donated: '≈ $970', donations: 5, rescues: 3, since: 'December 2024' };
+  protected readonly impact = { donated: '≈ $1,020', donations: 6, rescues: 3, since: 'December 2024' };
   protected readonly contractAddress = '0x20895E16d5aE9D6e0Ca127ED093a7cBE65dCb018';
 
   protected readonly games: Game[] = [
