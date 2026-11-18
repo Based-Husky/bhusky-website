@@ -70,15 +70,16 @@ export class App {
       name: "Bhusky's Shelter",
       cover: '/bhusky-shelter.webp',
       coverAlt: "Bhusky's Shelter cover: Bhusky in front of a snowy wooden dog shelter, next to a full food bowl",
-      badge: 'Coming soon',
-      comingSoon: true,
+      badge: 'New',
       platforms: 'Telegram + web',
       text: [
         'Tap, build and adopt: grow a dog shelter into a sanctuary and find your dogs their forever homes.',
-        'Daily quests, dog trivia, a secret word every week and 12 ranks to climb.'
+        'Daily quests, dog trivia, a secret word every week and 12 ranks to climb. On the web you can also feed the bowl for real dogs.'
       ],
-      links: [],
-      soonLabel: 'Opens November 18'
+      links: [
+        { label: 'Play on Telegram', href: 'https://t.me/bhuskygames_bot/shelter' },
+        { label: 'Play on the web', href: 'https://shelter.bhusky.net/' }
+      ]
     }
   ];
 
@@ -90,7 +91,9 @@ export class App {
     const track = this.gameTrack?.nativeElement;
     if (!track) return;
     const i = Math.max(0, Math.min(this.games.length - 1, index));
-    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+    const slides = track.children as HTMLCollectionOf<HTMLElement>;
+    const first = slides[0]?.offsetLeft ?? 0;
+    track.scrollTo({ left: (slides[i]?.offsetLeft ?? 0) - first, behavior: 'smooth' });
     this.gameIndex.set(i);
   }
 
@@ -98,7 +101,16 @@ export class App {
   protected onGameScroll() {
     const track = this.gameTrack?.nativeElement;
     if (!track || !track.clientWidth) return;
-    const i = Math.round(track.scrollLeft / track.clientWidth);
+    const slides = Array.from(track.children as HTMLCollectionOf<HTMLElement>);
+    if (!slides.length) return;
+    const first = slides[0].offsetLeft;
+    // At the end of the row the last slide cannot reach the start, so treat "scrolled to the end" as the last slide
+    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    let i = atEnd ? slides.length - 1 : 0;
+    if (!atEnd) {
+      let best = Infinity;
+      slides.forEach((s, k) => { const d = Math.abs(s.offsetLeft - first - track.scrollLeft); if (d < best) { best = d; i = k; } });
+    }
     if (i !== this.gameIndex()) this.gameIndex.set(i);
   }
 

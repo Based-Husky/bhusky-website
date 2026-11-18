@@ -79,6 +79,7 @@
 
   <bhusky-section id="play" [isBlue]="true" [isCentered]="true" title="Bhusky Games">
     <p>Free games starring Bhusky. More are on the way 👀</p>
+    <p class="games-hint" aria-hidden="true">{{ games.length }} games · swipe to see them all →</p>
     <div class="game-carousel" role="region" aria-roledescription="carousel" aria-label="Bhusky Games">
       <div class="game-track" #gameTrack (scroll)="onGameScroll()">
         @for (game of games; track game.name; let i = $index) {
@@ -130,7 +131,7 @@
       </details>
       <details class="faq-item">
         <summary>How can I donate?</summary>
-        <p>On our <a href="/donate/">Donate page</a>: pay in USDC with Base Pay in a few seconds, or send USDC on Base from any wallet.</p>
+        <p>On our <a href="/donate/">Donate page</a>: pay in USDC with Base Pay in a few seconds, or send USDC on Base from any wallet. You can also feed the bowl while you play <a href="https://shelter.bhusky.net/" target="_blank" rel="noopener">Bhusky's Shelter on the web</a>.</p>
       </details>
       <details class="faq-item">
         <summary>Is the contract safe?</summary>
