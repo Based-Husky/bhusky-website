@@ -452,6 +452,13 @@ bhusky-header {
   background-color: var(--color-primary-text);
 }
 
+.games-hint {
+  display: none;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 @media only screen and (max-width: 600px) {
   .game-carousel {
     position: relative;
@@ -481,27 +488,38 @@ bhusky-header {
     flex: 1 1 100%;
   }
 
-  /* Arrows over the middle of the cover, so they are visible without scrolling */
+  /* Phones: the next card peeks in from the right, and the arrows and dots sit above the cards */
+  .game-carousel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-controls {
+    order: -1;
+    margin-top: 4px;
+  }
+
+  .game-track {
+    gap: 12px;
+    scroll-padding-left: 0;
+  }
+
+  .game-slide {
+    flex-basis: 84%;
+    padding: 14px 0 24px;
+  }
+
+  .game-slide:last-child {
+    scroll-snap-align: end;
+  }
+
   .game-arrow {
-    position: absolute;
-    z-index: 2;
-    top: calc(16px + (100vw - 2 * var(--padding-side-border) - 12px) * 2 / 3);
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    font-size: 28px;
+    width: 44px;
+    height: 44px;
   }
 
-  .game-arrow-prev {
-    left: 14px;
-  }
-
-  .game-arrow-next {
-    right: 14px;
-  }
-
-  .game-arrow:disabled {
-    display: none;
+  .games-hint {
+    display: block;
   }
 }
 
@@ -511,3 +529,4 @@ main {
   flex-direction: column;
   gap: var(--padding-large);
 }
+
